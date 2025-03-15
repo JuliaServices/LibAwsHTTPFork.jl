@@ -1,6 +1,6 @@
-module LibAwsHTTP
+module LibAwsHTTPFork
 
-using aws_c_http_jll
+using aws_c_http_jq_jll
 using LibAwsCommon
 using LibAwsCompression
 using LibAwsIO

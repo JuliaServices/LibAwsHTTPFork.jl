@@ -1,6 +1,6 @@
-name = "LibAwsHTTP"
-uuid = "ce851869-0d7a-41e7-95ef-2d4cb63876dd"
-version = "1.2.0"
+name = "LibAwsHTTPFork"
+uuid = "d3f1d20b-921e-4930-8491-471e0be3121a"
+version = "1.0.0"
 
 [deps]
 CEnum = "fa961155-64e5-5f13-b03f-caf6b980ea82"

@@ -1,14 +1,14 @@
 ```@meta
-CurrentModule = LibAwsHTTP
+CurrentModule = LibAwsHTTPFork
 ```
 
-# LibAwsHTTP
+# LibAwsHTTPFork
 
-Documentation for [LibAwsHTTP](https://github.com/JuliaServices/LibAwsHTTP.jl).
+Documentation for [LibAwsHTTPFork](https://github.com/JuliaServices/LibAwsHTTPFork.jl).
 
 ```@index
 ```
 
 ```@autodocs
-Modules = [LibAwsHTTP]
+Modules = [LibAwsHTTPFork]
 ```
