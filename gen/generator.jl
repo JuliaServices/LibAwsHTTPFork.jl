@@ -84,7 +84,7 @@ for target in JLLEnvs.JLL_ENV_TRIPLES
     end
 
     header_dirs = []
-    inc = JLLEnvs.get_pkg_include_dir(aws_c_http_jll, target)
+    inc = JLLEnvs.get_pkg_include_dir(aws_c_http_jq_jll, target)
     push!(args, "-I$inc")
     push!(header_dirs, inc)
 
