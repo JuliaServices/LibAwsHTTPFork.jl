@@ -1,5 +1,5 @@
 [general]
-library_name = "libaws_c_http"
+library_name = "libaws_c_http_jq"
 smart_de_anonymize = true
 extract_c_comment_style = "doxygen"
 show_c_function_prototype = true

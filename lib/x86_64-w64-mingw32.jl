@@ -247,7 +247,7 @@ int aws_http_client_connect(const struct aws_http_client_connection_options *opt
 ```
 """
 function aws_http_client_connect(options)
-    ccall((:aws_http_client_connect, libaws_c_http), Cint, (Ptr{aws_http_client_connection_options},), options)
+    ccall((:aws_http_client_connect, libaws_c_http_jq), Cint, (Ptr{aws_http_client_connection_options},), options)
 end
 
 """
@@ -268,7 +268,7 @@ void aws_http_connection_release(struct aws_http_connection *connection);
 ```
 """
 function aws_http_connection_release(connection)
-    ccall((:aws_http_connection_release, libaws_c_http), Cvoid, (Ptr{aws_http_connection},), connection)
+    ccall((:aws_http_connection_release, libaws_c_http_jq), Cvoid, (Ptr{aws_http_connection},), connection)
 end
 
 """
@@ -284,7 +284,7 @@ void aws_http_connection_close(struct aws_http_connection *connection);
 ```
 """
 function aws_http_connection_close(connection)
-    ccall((:aws_http_connection_close, libaws_c_http), Cvoid, (Ptr{aws_http_connection},), connection)
+    ccall((:aws_http_connection_close, libaws_c_http_jq), Cvoid, (Ptr{aws_http_connection},), connection)
 end
 
 """
@@ -298,7 +298,7 @@ void aws_http_connection_stop_new_requests(struct aws_http_connection *connectio
 ```
 """
 function aws_http_connection_stop_new_requests(connection)
-    ccall((:aws_http_connection_stop_new_requests, libaws_c_http), Cvoid, (Ptr{aws_http_connection},), connection)
+    ccall((:aws_http_connection_stop_new_requests, libaws_c_http_jq), Cvoid, (Ptr{aws_http_connection},), connection)
 end
 
 """
@@ -312,7 +312,7 @@ bool aws_http_connection_is_open(const struct aws_http_connection *connection);
 ```
 """
 function aws_http_connection_is_open(connection)
-    ccall((:aws_http_connection_is_open, libaws_c_http), Bool, (Ptr{aws_http_connection},), connection)
+    ccall((:aws_http_connection_is_open, libaws_c_http_jq), Bool, (Ptr{aws_http_connection},), connection)
 end
 
 """
@@ -326,7 +326,7 @@ bool aws_http_connection_new_requests_allowed(const struct aws_http_connection *
 ```
 """
 function aws_http_connection_new_requests_allowed(connection)
-    ccall((:aws_http_connection_new_requests_allowed, libaws_c_http), Bool, (Ptr{aws_http_connection},), connection)
+    ccall((:aws_http_connection_new_requests_allowed, libaws_c_http_jq), Bool, (Ptr{aws_http_connection},), connection)
 end
 
 """
@@ -340,7 +340,7 @@ bool aws_http_connection_is_client(const struct aws_http_connection *connection)
 ```
 """
 function aws_http_connection_is_client(connection)
-    ccall((:aws_http_connection_is_client, libaws_c_http), Bool, (Ptr{aws_http_connection},), connection)
+    ccall((:aws_http_connection_is_client, libaws_c_http_jq), Bool, (Ptr{aws_http_connection},), connection)
 end
 
 """
@@ -366,7 +366,7 @@ enum aws_http_version aws_http_connection_get_version(const struct aws_http_conn
 ```
 """
 function aws_http_connection_get_version(connection)
-    ccall((:aws_http_connection_get_version, libaws_c_http), aws_http_version, (Ptr{aws_http_connection},), connection)
+    ccall((:aws_http_connection_get_version, libaws_c_http_jq), aws_http_version, (Ptr{aws_http_connection},), connection)
 end
 
 """
@@ -380,7 +380,7 @@ struct aws_channel *aws_http_connection_get_channel(struct aws_http_connection *
 ```
 """
 function aws_http_connection_get_channel(connection)
-    ccall((:aws_http_connection_get_channel, libaws_c_http), Ptr{Cvoid}, (Ptr{aws_http_connection},), connection)
+    ccall((:aws_http_connection_get_channel, libaws_c_http_jq), Ptr{Cvoid}, (Ptr{aws_http_connection},), connection)
 end
 
 """
@@ -394,7 +394,7 @@ const struct aws_socket_endpoint *aws_http_connection_get_remote_endpoint(const 
 ```
 """
 function aws_http_connection_get_remote_endpoint(connection)
-    ccall((:aws_http_connection_get_remote_endpoint, libaws_c_http), Ptr{aws_socket_endpoint}, (Ptr{aws_http_connection},), connection)
+    ccall((:aws_http_connection_get_remote_endpoint, libaws_c_http_jq), Ptr{aws_socket_endpoint}, (Ptr{aws_http_connection},), connection)
 end
 
 """
@@ -408,7 +408,7 @@ int aws_http_alpn_map_init_copy( struct aws_allocator *allocator, struct aws_has
 ```
 """
 function aws_http_alpn_map_init_copy(allocator, dest, src)
-    ccall((:aws_http_alpn_map_init_copy, libaws_c_http), Cint, (Ptr{aws_allocator}, Ptr{aws_hash_table}, Ptr{aws_hash_table}), allocator, dest, src)
+    ccall((:aws_http_alpn_map_init_copy, libaws_c_http_jq), Cint, (Ptr{aws_allocator}, Ptr{aws_hash_table}, Ptr{aws_hash_table}), allocator, dest, src)
 end
 
 """
@@ -422,7 +422,7 @@ int aws_http_alpn_map_init(struct aws_allocator *allocator, struct aws_hash_tabl
 ```
 """
 function aws_http_alpn_map_init(allocator, map)
-    ccall((:aws_http_alpn_map_init, libaws_c_http), Cint, (Ptr{aws_allocator}, Ptr{aws_hash_table}), allocator, map)
+    ccall((:aws_http_alpn_map_init, libaws_c_http_jq), Cint, (Ptr{aws_allocator}, Ptr{aws_hash_table}), allocator, map)
 end
 
 """
@@ -436,7 +436,7 @@ int aws_http_options_validate_proxy_configuration(const struct aws_http_client_c
 ```
 """
 function aws_http_options_validate_proxy_configuration(options)
-    ccall((:aws_http_options_validate_proxy_configuration, libaws_c_http), Cint, (Ptr{aws_http_client_connection_options},), options)
+    ccall((:aws_http_options_validate_proxy_configuration, libaws_c_http_jq), Cint, (Ptr{aws_http_client_connection_options},), options)
 end
 
 """
@@ -456,7 +456,7 @@ int aws_http2_connection_change_settings( struct aws_http_connection *http2_conn
 ```
 """
 function aws_http2_connection_change_settings(http2_connection, settings_array, num_settings, on_completed, user_data)
-    ccall((:aws_http2_connection_change_settings, libaws_c_http), Cint, (Ptr{aws_http_connection}, Ptr{aws_http2_setting}, Csize_t, Ptr{aws_http2_on_change_settings_complete_fn}, Ptr{Cvoid}), http2_connection, settings_array, num_settings, on_completed, user_data)
+    ccall((:aws_http2_connection_change_settings, libaws_c_http_jq), Cint, (Ptr{aws_http_connection}, Ptr{aws_http2_setting}, Csize_t, Ptr{aws_http2_on_change_settings_complete_fn}, Ptr{Cvoid}), http2_connection, settings_array, num_settings, on_completed, user_data)
 end
 
 """
@@ -475,7 +475,7 @@ int aws_http2_connection_ping( struct aws_http_connection *http2_connection, con
 ```
 """
 function aws_http2_connection_ping(http2_connection, optional_opaque_data, on_completed, user_data)
-    ccall((:aws_http2_connection_ping, libaws_c_http), Cint, (Ptr{aws_http_connection}, Ptr{aws_byte_cursor}, Ptr{aws_http2_on_ping_complete_fn}, Ptr{Cvoid}), http2_connection, optional_opaque_data, on_completed, user_data)
+    ccall((:aws_http2_connection_ping, libaws_c_http_jq), Cint, (Ptr{aws_http_connection}, Ptr{aws_byte_cursor}, Ptr{aws_http2_on_ping_complete_fn}, Ptr{Cvoid}), http2_connection, optional_opaque_data, on_completed, user_data)
 end
 
 """
@@ -492,7 +492,7 @@ void aws_http2_connection_get_local_settings( const struct aws_http_connection *
 ```
 """
 function aws_http2_connection_get_local_settings(http2_connection, out_settings)
-    ccall((:aws_http2_connection_get_local_settings, libaws_c_http), Cvoid, (Ptr{aws_http_connection}, Ptr{aws_http2_setting}), http2_connection, out_settings)
+    ccall((:aws_http2_connection_get_local_settings, libaws_c_http_jq), Cvoid, (Ptr{aws_http_connection}, Ptr{aws_http2_setting}), http2_connection, out_settings)
 end
 
 """
@@ -509,7 +509,7 @@ void aws_http2_connection_get_remote_settings( const struct aws_http_connection 
 ```
 """
 function aws_http2_connection_get_remote_settings(http2_connection, out_settings)
-    ccall((:aws_http2_connection_get_remote_settings, libaws_c_http), Cvoid, (Ptr{aws_http_connection}, Ptr{aws_http2_setting}), http2_connection, out_settings)
+    ccall((:aws_http2_connection_get_remote_settings, libaws_c_http_jq), Cvoid, (Ptr{aws_http_connection}, Ptr{aws_http2_setting}), http2_connection, out_settings)
 end
 
 """
@@ -534,7 +534,7 @@ void aws_http2_connection_send_goaway( struct aws_http_connection *http2_connect
 ```
 """
 function aws_http2_connection_send_goaway(http2_connection, http2_error, allow_more_streams, optional_debug_data)
-    ccall((:aws_http2_connection_send_goaway, libaws_c_http), Cvoid, (Ptr{aws_http_connection}, UInt32, Bool, Ptr{aws_byte_cursor}), http2_connection, http2_error, allow_more_streams, optional_debug_data)
+    ccall((:aws_http2_connection_send_goaway, libaws_c_http_jq), Cvoid, (Ptr{aws_http_connection}, UInt32, Bool, Ptr{aws_byte_cursor}), http2_connection, http2_error, allow_more_streams, optional_debug_data)
 end
 
 """
@@ -552,7 +552,7 @@ int aws_http2_connection_get_sent_goaway( struct aws_http_connection *http2_conn
 ```
 """
 function aws_http2_connection_get_sent_goaway(http2_connection, out_http2_error, out_last_stream_id)
-    ccall((:aws_http2_connection_get_sent_goaway, libaws_c_http), Cint, (Ptr{aws_http_connection}, Ptr{UInt32}, Ptr{UInt32}), http2_connection, out_http2_error, out_last_stream_id)
+    ccall((:aws_http2_connection_get_sent_goaway, libaws_c_http_jq), Cint, (Ptr{aws_http_connection}, Ptr{UInt32}, Ptr{UInt32}), http2_connection, out_http2_error, out_last_stream_id)
 end
 
 """
@@ -570,7 +570,7 @@ int aws_http2_connection_get_received_goaway( struct aws_http_connection *http2_
 ```
 """
 function aws_http2_connection_get_received_goaway(http2_connection, out_http2_error, out_last_stream_id)
-    ccall((:aws_http2_connection_get_received_goaway, libaws_c_http), Cint, (Ptr{aws_http_connection}, Ptr{UInt32}, Ptr{UInt32}), http2_connection, out_http2_error, out_last_stream_id)
+    ccall((:aws_http2_connection_get_received_goaway, libaws_c_http_jq), Cint, (Ptr{aws_http_connection}, Ptr{UInt32}, Ptr{UInt32}), http2_connection, out_http2_error, out_last_stream_id)
 end
 
 """
@@ -595,7 +595,7 @@ void aws_http2_connection_update_window(struct aws_http_connection *http2_connec
 ```
 """
 function aws_http2_connection_update_window(http2_connection, increment_size)
-    ccall((:aws_http2_connection_update_window, libaws_c_http), Cvoid, (Ptr{aws_http_connection}, UInt32), http2_connection, increment_size)
+    ccall((:aws_http2_connection_update_window, libaws_c_http_jq), Cvoid, (Ptr{aws_http_connection}, UInt32), http2_connection, increment_size)
 end
 
 """
@@ -665,7 +665,7 @@ void aws_http_connection_manager_acquire(struct aws_http_connection_manager *man
 ```
 """
 function aws_http_connection_manager_acquire(manager)
-    ccall((:aws_http_connection_manager_acquire, libaws_c_http), Cvoid, (Ptr{aws_http_connection_manager},), manager)
+    ccall((:aws_http_connection_manager_acquire, libaws_c_http_jq), Cvoid, (Ptr{aws_http_connection_manager},), manager)
 end
 
 """
@@ -678,7 +678,7 @@ void aws_http_connection_manager_release(struct aws_http_connection_manager *man
 ```
 """
 function aws_http_connection_manager_release(manager)
-    ccall((:aws_http_connection_manager_release, libaws_c_http), Cvoid, (Ptr{aws_http_connection_manager},), manager)
+    ccall((:aws_http_connection_manager_release, libaws_c_http_jq), Cvoid, (Ptr{aws_http_connection_manager},), manager)
 end
 
 """
@@ -691,7 +691,7 @@ struct aws_http_connection_manager *aws_http_connection_manager_new( struct aws_
 ```
 """
 function aws_http_connection_manager_new(allocator, options)
-    ccall((:aws_http_connection_manager_new, libaws_c_http), Ptr{aws_http_connection_manager}, (Ptr{aws_allocator}, Ptr{aws_http_connection_manager_options}), allocator, options)
+    ccall((:aws_http_connection_manager_new, libaws_c_http_jq), Ptr{aws_http_connection_manager}, (Ptr{aws_allocator}, Ptr{aws_http_connection_manager_options}), allocator, options)
 end
 
 """
@@ -704,7 +704,7 @@ void aws_http_connection_manager_acquire_connection( struct aws_http_connection_
 ```
 """
 function aws_http_connection_manager_acquire_connection(manager, callback, user_data)
-    ccall((:aws_http_connection_manager_acquire_connection, libaws_c_http), Cvoid, (Ptr{aws_http_connection_manager}, Ptr{aws_http_connection_manager_on_connection_setup_fn}, Ptr{Cvoid}), manager, callback, user_data)
+    ccall((:aws_http_connection_manager_acquire_connection, libaws_c_http_jq), Cvoid, (Ptr{aws_http_connection_manager}, Ptr{aws_http_connection_manager_on_connection_setup_fn}, Ptr{Cvoid}), manager, callback, user_data)
 end
 
 """
@@ -717,7 +717,7 @@ int aws_http_connection_manager_release_connection( struct aws_http_connection_m
 ```
 """
 function aws_http_connection_manager_release_connection(manager, connection)
-    ccall((:aws_http_connection_manager_release_connection, libaws_c_http), Cint, (Ptr{aws_http_connection_manager}, Ptr{aws_http_connection}), manager, connection)
+    ccall((:aws_http_connection_manager_release_connection, libaws_c_http_jq), Cint, (Ptr{aws_http_connection_manager}, Ptr{aws_http_connection}), manager, connection)
 end
 
 """
@@ -731,7 +731,7 @@ void aws_http_connection_manager_fetch_metrics( const struct aws_http_connection
 ```
 """
 function aws_http_connection_manager_fetch_metrics(manager, out_metrics)
-    ccall((:aws_http_connection_manager_fetch_metrics, libaws_c_http), Cvoid, (Ptr{aws_http_connection_manager}, Ptr{aws_http_manager_metrics}), manager, out_metrics)
+    ccall((:aws_http_connection_manager_fetch_metrics, libaws_c_http_jq), Cvoid, (Ptr{aws_http_connection_manager}, Ptr{aws_http_manager_metrics}), manager, out_metrics)
 end
 
 """
@@ -841,7 +841,7 @@ void aws_http_library_init(struct aws_allocator *alloc);
 ```
 """
 function aws_http_library_init(alloc)
-    ccall((:aws_http_library_init, libaws_c_http), Cvoid, (Ptr{aws_allocator},), alloc)
+    ccall((:aws_http_library_init, libaws_c_http_jq), Cvoid, (Ptr{aws_allocator},), alloc)
 end
 
 """
@@ -855,7 +855,7 @@ void aws_http_library_clean_up(void);
 ```
 """
 function aws_http_library_clean_up()
-    ccall((:aws_http_library_clean_up, libaws_c_http), Cvoid, ())
+    ccall((:aws_http_library_clean_up, libaws_c_http_jq), Cvoid, ())
 end
 
 """
@@ -869,7 +869,7 @@ const char *aws_http_status_text(int status_code);
 ```
 """
 function aws_http_status_text(status_code)
-    ccall((:aws_http_status_text, libaws_c_http), Ptr{Cchar}, (Cint,), status_code)
+    ccall((:aws_http_status_text, libaws_c_http_jq), Ptr{Cchar}, (Cint,), status_code)
 end
 
 """
@@ -1020,7 +1020,7 @@ struct aws_http2_stream_manager *aws_http2_stream_manager_acquire(struct aws_htt
 ```
 """
 function aws_http2_stream_manager_acquire(manager)
-    ccall((:aws_http2_stream_manager_acquire, libaws_c_http), Ptr{aws_http2_stream_manager}, (Ptr{aws_http2_stream_manager},), manager)
+    ccall((:aws_http2_stream_manager_acquire, libaws_c_http_jq), Ptr{aws_http2_stream_manager}, (Ptr{aws_http2_stream_manager},), manager)
 end
 
 """
@@ -1038,7 +1038,7 @@ struct aws_http2_stream_manager *aws_http2_stream_manager_release(struct aws_htt
 ```
 """
 function aws_http2_stream_manager_release(manager)
-    ccall((:aws_http2_stream_manager_release, libaws_c_http), Ptr{aws_http2_stream_manager}, (Ptr{aws_http2_stream_manager},), manager)
+    ccall((:aws_http2_stream_manager_release, libaws_c_http_jq), Ptr{aws_http2_stream_manager}, (Ptr{aws_http2_stream_manager},), manager)
 end
 
 """
@@ -1051,7 +1051,7 @@ struct aws_http2_stream_manager *aws_http2_stream_manager_new( struct aws_alloca
 ```
 """
 function aws_http2_stream_manager_new(allocator, options)
-    ccall((:aws_http2_stream_manager_new, libaws_c_http), Ptr{aws_http2_stream_manager}, (Ptr{aws_allocator}, Ptr{aws_http2_stream_manager_options}), allocator, options)
+    ccall((:aws_http2_stream_manager_new, libaws_c_http_jq), Ptr{aws_http2_stream_manager}, (Ptr{aws_allocator}, Ptr{aws_http2_stream_manager_options}), allocator, options)
 end
 
 """
@@ -1068,7 +1068,7 @@ void aws_http2_stream_manager_acquire_stream( struct aws_http2_stream_manager *h
 ```
 """
 function aws_http2_stream_manager_acquire_stream(http2_stream_manager, acquire_stream_option)
-    ccall((:aws_http2_stream_manager_acquire_stream, libaws_c_http), Cvoid, (Ptr{aws_http2_stream_manager}, Ptr{aws_http2_stream_manager_acquire_stream_options}), http2_stream_manager, acquire_stream_option)
+    ccall((:aws_http2_stream_manager_acquire_stream, libaws_c_http_jq), Cvoid, (Ptr{aws_http2_stream_manager}, Ptr{aws_http2_stream_manager_acquire_stream_options}), http2_stream_manager, acquire_stream_option)
 end
 
 """
@@ -1085,7 +1085,7 @@ void aws_http2_stream_manager_fetch_metrics( const struct aws_http2_stream_manag
 ```
 """
 function aws_http2_stream_manager_fetch_metrics(http2_stream_manager, out_metrics)
-    ccall((:aws_http2_stream_manager_fetch_metrics, libaws_c_http), Cvoid, (Ptr{aws_http2_stream_manager}, Ptr{aws_http_manager_metrics}), http2_stream_manager, out_metrics)
+    ccall((:aws_http2_stream_manager_fetch_metrics, libaws_c_http_jq), Cvoid, (Ptr{aws_http2_stream_manager}, Ptr{aws_http_manager_metrics}), http2_stream_manager, out_metrics)
 end
 
 """
@@ -1312,7 +1312,7 @@ struct aws_http_proxy_negotiator *aws_http_proxy_negotiator_acquire(struct aws_h
 ```
 """
 function aws_http_proxy_negotiator_acquire(proxy_negotiator)
-    ccall((:aws_http_proxy_negotiator_acquire, libaws_c_http), Ptr{aws_http_proxy_negotiator}, (Ptr{aws_http_proxy_negotiator},), proxy_negotiator)
+    ccall((:aws_http_proxy_negotiator_acquire, libaws_c_http_jq), Ptr{aws_http_proxy_negotiator}, (Ptr{aws_http_proxy_negotiator},), proxy_negotiator)
 end
 
 """
@@ -1328,7 +1328,7 @@ void aws_http_proxy_negotiator_release(struct aws_http_proxy_negotiator *proxy_n
 ```
 """
 function aws_http_proxy_negotiator_release(proxy_negotiator)
-    ccall((:aws_http_proxy_negotiator_release, libaws_c_http), Cvoid, (Ptr{aws_http_proxy_negotiator},), proxy_negotiator)
+    ccall((:aws_http_proxy_negotiator_release, libaws_c_http_jq), Cvoid, (Ptr{aws_http_proxy_negotiator},), proxy_negotiator)
 end
 
 """
@@ -1347,7 +1347,7 @@ struct aws_http_proxy_negotiator *aws_http_proxy_strategy_create_negotiator( str
 ```
 """
 function aws_http_proxy_strategy_create_negotiator(strategy, allocator)
-    ccall((:aws_http_proxy_strategy_create_negotiator, libaws_c_http), Ptr{aws_http_proxy_negotiator}, (Ptr{aws_http_proxy_strategy}, Ptr{aws_allocator}), strategy, allocator)
+    ccall((:aws_http_proxy_strategy_create_negotiator, libaws_c_http_jq), Ptr{aws_http_proxy_negotiator}, (Ptr{aws_http_proxy_strategy}, Ptr{aws_allocator}), strategy, allocator)
 end
 
 """
@@ -1365,7 +1365,7 @@ struct aws_http_proxy_strategy *aws_http_proxy_strategy_acquire(struct aws_http_
 ```
 """
 function aws_http_proxy_strategy_acquire(proxy_strategy)
-    ccall((:aws_http_proxy_strategy_acquire, libaws_c_http), Ptr{aws_http_proxy_strategy}, (Ptr{aws_http_proxy_strategy},), proxy_strategy)
+    ccall((:aws_http_proxy_strategy_acquire, libaws_c_http_jq), Ptr{aws_http_proxy_strategy}, (Ptr{aws_http_proxy_strategy},), proxy_strategy)
 end
 
 """
@@ -1381,7 +1381,7 @@ void aws_http_proxy_strategy_release(struct aws_http_proxy_strategy *proxy_strat
 ```
 """
 function aws_http_proxy_strategy_release(proxy_strategy)
-    ccall((:aws_http_proxy_strategy_release, libaws_c_http), Cvoid, (Ptr{aws_http_proxy_strategy},), proxy_strategy)
+    ccall((:aws_http_proxy_strategy_release, libaws_c_http_jq), Cvoid, (Ptr{aws_http_proxy_strategy},), proxy_strategy)
 end
 
 """
@@ -1400,7 +1400,7 @@ struct aws_http_proxy_strategy *aws_http_proxy_strategy_new_basic_auth( struct a
 ```
 """
 function aws_http_proxy_strategy_new_basic_auth(allocator, config)
-    ccall((:aws_http_proxy_strategy_new_basic_auth, libaws_c_http), Ptr{aws_http_proxy_strategy}, (Ptr{aws_allocator}, Ptr{aws_http_proxy_strategy_basic_auth_options}), allocator, config)
+    ccall((:aws_http_proxy_strategy_new_basic_auth, libaws_c_http_jq), Ptr{aws_http_proxy_strategy}, (Ptr{aws_allocator}, Ptr{aws_http_proxy_strategy_basic_auth_options}), allocator, config)
 end
 
 """
@@ -1419,7 +1419,7 @@ struct aws_http_proxy_strategy *aws_http_proxy_strategy_new_tunneling_adaptive( 
 ```
 """
 function aws_http_proxy_strategy_new_tunneling_adaptive(allocator, config)
-    ccall((:aws_http_proxy_strategy_new_tunneling_adaptive, libaws_c_http), Ptr{aws_http_proxy_strategy}, (Ptr{aws_allocator}, Ptr{aws_http_proxy_strategy_tunneling_adaptive_options}), allocator, config)
+    ccall((:aws_http_proxy_strategy_new_tunneling_adaptive, libaws_c_http_jq), Ptr{aws_http_proxy_strategy}, (Ptr{aws_allocator}, Ptr{aws_http_proxy_strategy_tunneling_adaptive_options}), allocator, config)
 end
 
 """
@@ -1438,7 +1438,7 @@ struct aws_http_proxy_config *aws_http_proxy_config_new_from_connection_options(
 ```
 """
 function aws_http_proxy_config_new_from_connection_options(allocator, options)
-    ccall((:aws_http_proxy_config_new_from_connection_options, libaws_c_http), Ptr{aws_http_proxy_config}, (Ptr{aws_allocator}, Ptr{aws_http_client_connection_options}), allocator, options)
+    ccall((:aws_http_proxy_config_new_from_connection_options, libaws_c_http_jq), Ptr{aws_http_proxy_config}, (Ptr{aws_allocator}, Ptr{aws_http_client_connection_options}), allocator, options)
 end
 
 """
@@ -1457,7 +1457,7 @@ struct aws_http_proxy_config *aws_http_proxy_config_new_from_manager_options( st
 ```
 """
 function aws_http_proxy_config_new_from_manager_options(allocator, options)
-    ccall((:aws_http_proxy_config_new_from_manager_options, libaws_c_http), Ptr{aws_http_proxy_config}, (Ptr{aws_allocator}, Ptr{aws_http_connection_manager_options}), allocator, options)
+    ccall((:aws_http_proxy_config_new_from_manager_options, libaws_c_http_jq), Ptr{aws_http_proxy_config}, (Ptr{aws_allocator}, Ptr{aws_http_connection_manager_options}), allocator, options)
 end
 
 """
@@ -1476,7 +1476,7 @@ struct aws_http_proxy_config *aws_http_proxy_config_new_tunneling_from_proxy_opt
 ```
 """
 function aws_http_proxy_config_new_tunneling_from_proxy_options(allocator, options)
-    ccall((:aws_http_proxy_config_new_tunneling_from_proxy_options, libaws_c_http), Ptr{aws_http_proxy_config}, (Ptr{aws_allocator}, Ptr{aws_http_proxy_options}), allocator, options)
+    ccall((:aws_http_proxy_config_new_tunneling_from_proxy_options, libaws_c_http_jq), Ptr{aws_http_proxy_config}, (Ptr{aws_allocator}, Ptr{aws_http_proxy_options}), allocator, options)
 end
 
 """
@@ -1495,7 +1495,7 @@ struct aws_http_proxy_config *aws_http_proxy_config_new_from_proxy_options( stru
 ```
 """
 function aws_http_proxy_config_new_from_proxy_options(allocator, options)
-    ccall((:aws_http_proxy_config_new_from_proxy_options, libaws_c_http), Ptr{aws_http_proxy_config}, (Ptr{aws_allocator}, Ptr{aws_http_proxy_options}), allocator, options)
+    ccall((:aws_http_proxy_config_new_from_proxy_options, libaws_c_http_jq), Ptr{aws_http_proxy_config}, (Ptr{aws_allocator}, Ptr{aws_http_proxy_options}), allocator, options)
 end
 
 """
@@ -1515,7 +1515,7 @@ struct aws_http_proxy_config *aws_http_proxy_config_new_from_proxy_options_with_
 ```
 """
 function aws_http_proxy_config_new_from_proxy_options_with_tls_info(allocator, proxy_options, is_tls_connection)
-    ccall((:aws_http_proxy_config_new_from_proxy_options_with_tls_info, libaws_c_http), Ptr{aws_http_proxy_config}, (Ptr{aws_allocator}, Ptr{aws_http_proxy_options}, Bool), allocator, proxy_options, is_tls_connection)
+    ccall((:aws_http_proxy_config_new_from_proxy_options_with_tls_info, libaws_c_http_jq), Ptr{aws_http_proxy_config}, (Ptr{aws_allocator}, Ptr{aws_http_proxy_options}, Bool), allocator, proxy_options, is_tls_connection)
 end
 
 """
@@ -1534,7 +1534,7 @@ struct aws_http_proxy_config *aws_http_proxy_config_new_clone( struct aws_alloca
 ```
 """
 function aws_http_proxy_config_new_clone(allocator, proxy_config)
-    ccall((:aws_http_proxy_config_new_clone, libaws_c_http), Ptr{aws_http_proxy_config}, (Ptr{aws_allocator}, Ptr{aws_http_proxy_config}), allocator, proxy_config)
+    ccall((:aws_http_proxy_config_new_clone, libaws_c_http_jq), Ptr{aws_http_proxy_config}, (Ptr{aws_allocator}, Ptr{aws_http_proxy_config}), allocator, proxy_config)
 end
 
 """
@@ -1550,7 +1550,7 @@ void aws_http_proxy_config_destroy(struct aws_http_proxy_config *config);
 ```
 """
 function aws_http_proxy_config_destroy(config)
-    ccall((:aws_http_proxy_config_destroy, libaws_c_http), Cvoid, (Ptr{aws_http_proxy_config},), config)
+    ccall((:aws_http_proxy_config_destroy, libaws_c_http_jq), Cvoid, (Ptr{aws_http_proxy_config},), config)
 end
 
 """
@@ -1567,7 +1567,7 @@ void aws_http_proxy_options_init_from_config( struct aws_http_proxy_options *opt
 ```
 """
 function aws_http_proxy_options_init_from_config(options, config)
-    ccall((:aws_http_proxy_options_init_from_config, libaws_c_http), Cvoid, (Ptr{aws_http_proxy_options}, Ptr{aws_http_proxy_config}), options, config)
+    ccall((:aws_http_proxy_options_init_from_config, libaws_c_http_jq), Cvoid, (Ptr{aws_http_proxy_options}, Ptr{aws_http_proxy_config}), options, config)
 end
 
 """
@@ -1586,7 +1586,7 @@ int aws_http_proxy_new_socket_channel( struct aws_socket_channel_bootstrap_optio
 ```
 """
 function aws_http_proxy_new_socket_channel(channel_options, proxy_options)
-    ccall((:aws_http_proxy_new_socket_channel, libaws_c_http), Cint, (Ptr{aws_socket_channel_bootstrap_options}, Ptr{aws_http_proxy_options}), channel_options, proxy_options)
+    ccall((:aws_http_proxy_new_socket_channel, libaws_c_http_jq), Cint, (Ptr{aws_socket_channel_bootstrap_options}, Ptr{aws_http_proxy_options}), channel_options, proxy_options)
 end
 
 """
@@ -1771,7 +1771,7 @@ bool aws_http_header_name_eq(struct aws_byte_cursor name_a, struct aws_byte_curs
 ```
 """
 function aws_http_header_name_eq(name_a, name_b)
-    ccall((:aws_http_header_name_eq, libaws_c_http), Bool, (aws_byte_cursor, aws_byte_cursor), name_a, name_b)
+    ccall((:aws_http_header_name_eq, libaws_c_http_jq), Bool, (aws_byte_cursor, aws_byte_cursor), name_a, name_b)
 end
 
 """
@@ -1785,7 +1785,7 @@ struct aws_http_headers *aws_http_headers_new(struct aws_allocator *allocator);
 ```
 """
 function aws_http_headers_new(allocator)
-    ccall((:aws_http_headers_new, libaws_c_http), Ptr{aws_http_headers}, (Ptr{aws_allocator},), allocator)
+    ccall((:aws_http_headers_new, libaws_c_http_jq), Ptr{aws_http_headers}, (Ptr{aws_allocator},), allocator)
 end
 
 """
@@ -1799,7 +1799,7 @@ void aws_http_headers_acquire(struct aws_http_headers *headers);
 ```
 """
 function aws_http_headers_acquire(headers)
-    ccall((:aws_http_headers_acquire, libaws_c_http), Cvoid, (Ptr{aws_http_headers},), headers)
+    ccall((:aws_http_headers_acquire, libaws_c_http_jq), Cvoid, (Ptr{aws_http_headers},), headers)
 end
 
 """
@@ -1813,7 +1813,7 @@ void aws_http_headers_release(struct aws_http_headers *headers);
 ```
 """
 function aws_http_headers_release(headers)
-    ccall((:aws_http_headers_release, libaws_c_http), Cvoid, (Ptr{aws_http_headers},), headers)
+    ccall((:aws_http_headers_release, libaws_c_http_jq), Cvoid, (Ptr{aws_http_headers},), headers)
 end
 
 """
@@ -1827,7 +1827,7 @@ int aws_http_headers_add_header(struct aws_http_headers *headers, const struct a
 ```
 """
 function aws_http_headers_add_header(headers, header)
-    ccall((:aws_http_headers_add_header, libaws_c_http), Cint, (Ptr{aws_http_headers}, Ptr{aws_http_header}), headers, header)
+    ccall((:aws_http_headers_add_header, libaws_c_http_jq), Cint, (Ptr{aws_http_headers}, Ptr{aws_http_header}), headers, header)
 end
 
 """
@@ -1841,7 +1841,7 @@ int aws_http_headers_add(struct aws_http_headers *headers, struct aws_byte_curso
 ```
 """
 function aws_http_headers_add(headers, name, value)
-    ccall((:aws_http_headers_add, libaws_c_http), Cint, (Ptr{aws_http_headers}, aws_byte_cursor, aws_byte_cursor), headers, name, value)
+    ccall((:aws_http_headers_add, libaws_c_http_jq), Cint, (Ptr{aws_http_headers}, aws_byte_cursor, aws_byte_cursor), headers, name, value)
 end
 
 """
@@ -1855,7 +1855,7 @@ int aws_http_headers_add_array(struct aws_http_headers *headers, const struct aw
 ```
 """
 function aws_http_headers_add_array(headers, array, count)
-    ccall((:aws_http_headers_add_array, libaws_c_http), Cint, (Ptr{aws_http_headers}, Ptr{aws_http_header}, Csize_t), headers, array, count)
+    ccall((:aws_http_headers_add_array, libaws_c_http_jq), Cint, (Ptr{aws_http_headers}, Ptr{aws_http_header}, Csize_t), headers, array, count)
 end
 
 """
@@ -1869,7 +1869,7 @@ int aws_http_headers_set(struct aws_http_headers *headers, struct aws_byte_curso
 ```
 """
 function aws_http_headers_set(headers, name, value)
-    ccall((:aws_http_headers_set, libaws_c_http), Cint, (Ptr{aws_http_headers}, aws_byte_cursor, aws_byte_cursor), headers, name, value)
+    ccall((:aws_http_headers_set, libaws_c_http_jq), Cint, (Ptr{aws_http_headers}, aws_byte_cursor, aws_byte_cursor), headers, name, value)
 end
 
 """
@@ -1883,7 +1883,7 @@ size_t aws_http_headers_count(const struct aws_http_headers *headers);
 ```
 """
 function aws_http_headers_count(headers)
-    ccall((:aws_http_headers_count, libaws_c_http), Csize_t, (Ptr{aws_http_headers},), headers)
+    ccall((:aws_http_headers_count, libaws_c_http_jq), Csize_t, (Ptr{aws_http_headers},), headers)
 end
 
 """
@@ -1903,7 +1903,7 @@ int aws_http_headers_get_index( const struct aws_http_headers *headers, size_t i
 ```
 """
 function aws_http_headers_get_index(headers, index, out_header)
-    ccall((:aws_http_headers_get_index, libaws_c_http), Cint, (Ptr{aws_http_headers}, Csize_t, Ptr{aws_http_header}), headers, index, out_header)
+    ccall((:aws_http_headers_get_index, libaws_c_http_jq), Cint, (Ptr{aws_http_headers}, Csize_t, Ptr{aws_http_header}), headers, index, out_header)
 end
 
 """
@@ -1917,7 +1917,7 @@ struct aws_string *aws_http_headers_get_all(const struct aws_http_headers *heade
 ```
 """
 function aws_http_headers_get_all(headers, name)
-    ccall((:aws_http_headers_get_all, libaws_c_http), Ptr{Cvoid}, (Ptr{aws_http_headers}, aws_byte_cursor), headers, name)
+    ccall((:aws_http_headers_get_all, libaws_c_http_jq), Ptr{Cvoid}, (Ptr{aws_http_headers}, aws_byte_cursor), headers, name)
 end
 
 """
@@ -1931,7 +1931,7 @@ int aws_http_headers_get( const struct aws_http_headers *headers, struct aws_byt
 ```
 """
 function aws_http_headers_get(headers, name, out_value)
-    ccall((:aws_http_headers_get, libaws_c_http), Cint, (Ptr{aws_http_headers}, aws_byte_cursor, Ptr{aws_byte_cursor}), headers, name, out_value)
+    ccall((:aws_http_headers_get, libaws_c_http_jq), Cint, (Ptr{aws_http_headers}, aws_byte_cursor, Ptr{aws_byte_cursor}), headers, name, out_value)
 end
 
 """
@@ -1945,7 +1945,7 @@ bool aws_http_headers_has(const struct aws_http_headers *headers, struct aws_byt
 ```
 """
 function aws_http_headers_has(headers, name)
-    ccall((:aws_http_headers_has, libaws_c_http), Bool, (Ptr{aws_http_headers}, aws_byte_cursor), headers, name)
+    ccall((:aws_http_headers_has, libaws_c_http_jq), Bool, (Ptr{aws_http_headers}, aws_byte_cursor), headers, name)
 end
 
 """
@@ -1959,7 +1959,7 @@ int aws_http_headers_erase(struct aws_http_headers *headers, struct aws_byte_cur
 ```
 """
 function aws_http_headers_erase(headers, name)
-    ccall((:aws_http_headers_erase, libaws_c_http), Cint, (Ptr{aws_http_headers}, aws_byte_cursor), headers, name)
+    ccall((:aws_http_headers_erase, libaws_c_http_jq), Cint, (Ptr{aws_http_headers}, aws_byte_cursor), headers, name)
 end
 
 """
@@ -1973,7 +1973,7 @@ int aws_http_headers_erase_value( struct aws_http_headers *headers, struct aws_b
 ```
 """
 function aws_http_headers_erase_value(headers, name, value)
-    ccall((:aws_http_headers_erase_value, libaws_c_http), Cint, (Ptr{aws_http_headers}, aws_byte_cursor, aws_byte_cursor), headers, name, value)
+    ccall((:aws_http_headers_erase_value, libaws_c_http_jq), Cint, (Ptr{aws_http_headers}, aws_byte_cursor, aws_byte_cursor), headers, name, value)
 end
 
 """
@@ -1989,7 +1989,7 @@ int aws_http_headers_erase_index(struct aws_http_headers *headers, size_t index)
 ```
 """
 function aws_http_headers_erase_index(headers, index)
-    ccall((:aws_http_headers_erase_index, libaws_c_http), Cint, (Ptr{aws_http_headers}, Csize_t), headers, index)
+    ccall((:aws_http_headers_erase_index, libaws_c_http_jq), Cint, (Ptr{aws_http_headers}, Csize_t), headers, index)
 end
 
 """
@@ -2003,7 +2003,7 @@ void aws_http_headers_clear(struct aws_http_headers *headers);
 ```
 """
 function aws_http_headers_clear(headers)
-    ccall((:aws_http_headers_clear, libaws_c_http), Cvoid, (Ptr{aws_http_headers},), headers)
+    ccall((:aws_http_headers_clear, libaws_c_http_jq), Cvoid, (Ptr{aws_http_headers},), headers)
 end
 
 """
@@ -2017,7 +2017,7 @@ int aws_http2_headers_get_request_method(const struct aws_http_headers *h2_heade
 ```
 """
 function aws_http2_headers_get_request_method(h2_headers, out_method)
-    ccall((:aws_http2_headers_get_request_method, libaws_c_http), Cint, (Ptr{aws_http_headers}, Ptr{aws_byte_cursor}), h2_headers, out_method)
+    ccall((:aws_http2_headers_get_request_method, libaws_c_http_jq), Cint, (Ptr{aws_http_headers}, Ptr{aws_byte_cursor}), h2_headers, out_method)
 end
 
 """
@@ -2031,7 +2031,7 @@ int aws_http2_headers_set_request_method(struct aws_http_headers *h2_headers, st
 ```
 """
 function aws_http2_headers_set_request_method(h2_headers, method)
-    ccall((:aws_http2_headers_set_request_method, libaws_c_http), Cint, (Ptr{aws_http_headers}, aws_byte_cursor), h2_headers, method)
+    ccall((:aws_http2_headers_set_request_method, libaws_c_http_jq), Cint, (Ptr{aws_http_headers}, aws_byte_cursor), h2_headers, method)
 end
 
 """
@@ -2044,7 +2044,7 @@ int aws_http2_headers_get_request_scheme(const struct aws_http_headers *h2_heade
 ```
 """
 function aws_http2_headers_get_request_scheme(h2_headers, out_scheme)
-    ccall((:aws_http2_headers_get_request_scheme, libaws_c_http), Cint, (Ptr{aws_http_headers}, Ptr{aws_byte_cursor}), h2_headers, out_scheme)
+    ccall((:aws_http2_headers_get_request_scheme, libaws_c_http_jq), Cint, (Ptr{aws_http_headers}, Ptr{aws_byte_cursor}), h2_headers, out_scheme)
 end
 
 """
@@ -2058,7 +2058,7 @@ int aws_http2_headers_set_request_scheme(struct aws_http_headers *h2_headers, st
 ```
 """
 function aws_http2_headers_set_request_scheme(h2_headers, scheme)
-    ccall((:aws_http2_headers_set_request_scheme, libaws_c_http), Cint, (Ptr{aws_http_headers}, aws_byte_cursor), h2_headers, scheme)
+    ccall((:aws_http2_headers_set_request_scheme, libaws_c_http_jq), Cint, (Ptr{aws_http_headers}, aws_byte_cursor), h2_headers, scheme)
 end
 
 """
@@ -2071,7 +2071,7 @@ int aws_http2_headers_get_request_authority( const struct aws_http_headers *h2_h
 ```
 """
 function aws_http2_headers_get_request_authority(h2_headers, out_authority)
-    ccall((:aws_http2_headers_get_request_authority, libaws_c_http), Cint, (Ptr{aws_http_headers}, Ptr{aws_byte_cursor}), h2_headers, out_authority)
+    ccall((:aws_http2_headers_get_request_authority, libaws_c_http_jq), Cint, (Ptr{aws_http_headers}, Ptr{aws_byte_cursor}), h2_headers, out_authority)
 end
 
 """
@@ -2085,7 +2085,7 @@ int aws_http2_headers_set_request_authority(struct aws_http_headers *h2_headers,
 ```
 """
 function aws_http2_headers_set_request_authority(h2_headers, authority)
-    ccall((:aws_http2_headers_set_request_authority, libaws_c_http), Cint, (Ptr{aws_http_headers}, aws_byte_cursor), h2_headers, authority)
+    ccall((:aws_http2_headers_set_request_authority, libaws_c_http_jq), Cint, (Ptr{aws_http_headers}, aws_byte_cursor), h2_headers, authority)
 end
 
 """
@@ -2098,7 +2098,7 @@ int aws_http2_headers_get_request_path(const struct aws_http_headers *h2_headers
 ```
 """
 function aws_http2_headers_get_request_path(h2_headers, out_path)
-    ccall((:aws_http2_headers_get_request_path, libaws_c_http), Cint, (Ptr{aws_http_headers}, Ptr{aws_byte_cursor}), h2_headers, out_path)
+    ccall((:aws_http2_headers_get_request_path, libaws_c_http_jq), Cint, (Ptr{aws_http_headers}, Ptr{aws_byte_cursor}), h2_headers, out_path)
 end
 
 """
@@ -2112,7 +2112,7 @@ int aws_http2_headers_set_request_path(struct aws_http_headers *h2_headers, stru
 ```
 """
 function aws_http2_headers_set_request_path(h2_headers, path)
-    ccall((:aws_http2_headers_set_request_path, libaws_c_http), Cint, (Ptr{aws_http_headers}, aws_byte_cursor), h2_headers, path)
+    ccall((:aws_http2_headers_set_request_path, libaws_c_http_jq), Cint, (Ptr{aws_http_headers}, aws_byte_cursor), h2_headers, path)
 end
 
 """
@@ -2126,7 +2126,7 @@ int aws_http2_headers_get_response_status(const struct aws_http_headers *h2_head
 ```
 """
 function aws_http2_headers_get_response_status(h2_headers, out_status_code)
-    ccall((:aws_http2_headers_get_response_status, libaws_c_http), Cint, (Ptr{aws_http_headers}, Ptr{Cint}), h2_headers, out_status_code)
+    ccall((:aws_http2_headers_get_response_status, libaws_c_http_jq), Cint, (Ptr{aws_http_headers}, Ptr{Cint}), h2_headers, out_status_code)
 end
 
 """
@@ -2140,7 +2140,7 @@ int aws_http2_headers_set_response_status(struct aws_http_headers *h2_headers, i
 ```
 """
 function aws_http2_headers_set_response_status(h2_headers, status_code)
-    ccall((:aws_http2_headers_set_response_status, libaws_c_http), Cint, (Ptr{aws_http_headers}, Cint), h2_headers, status_code)
+    ccall((:aws_http2_headers_set_response_status, libaws_c_http_jq), Cint, (Ptr{aws_http_headers}, Cint), h2_headers, status_code)
 end
 
 """
@@ -2156,7 +2156,7 @@ struct aws_http_message *aws_http_message_new_request(struct aws_allocator *allo
 ```
 """
 function aws_http_message_new_request(allocator)
-    ccall((:aws_http_message_new_request, libaws_c_http), Ptr{aws_http_message}, (Ptr{aws_allocator},), allocator)
+    ccall((:aws_http_message_new_request, libaws_c_http_jq), Ptr{aws_http_message}, (Ptr{aws_allocator},), allocator)
 end
 
 """
@@ -2170,7 +2170,7 @@ struct aws_http_message *aws_http_message_new_request_with_headers( struct aws_a
 ```
 """
 function aws_http_message_new_request_with_headers(allocator, existing_headers)
-    ccall((:aws_http_message_new_request_with_headers, libaws_c_http), Ptr{aws_http_message}, (Ptr{aws_allocator}, Ptr{aws_http_headers}), allocator, existing_headers)
+    ccall((:aws_http_message_new_request_with_headers, libaws_c_http_jq), Ptr{aws_http_message}, (Ptr{aws_allocator}, Ptr{aws_http_headers}), allocator, existing_headers)
 end
 
 """
@@ -2186,7 +2186,7 @@ struct aws_http_message *aws_http_message_new_response(struct aws_allocator *all
 ```
 """
 function aws_http_message_new_response(allocator)
-    ccall((:aws_http_message_new_response, libaws_c_http), Ptr{aws_http_message}, (Ptr{aws_allocator},), allocator)
+    ccall((:aws_http_message_new_response, libaws_c_http_jq), Ptr{aws_http_message}, (Ptr{aws_allocator},), allocator)
 end
 
 """
@@ -2202,7 +2202,7 @@ struct aws_http_message *aws_http2_message_new_request(struct aws_allocator *all
 ```
 """
 function aws_http2_message_new_request(allocator)
-    ccall((:aws_http2_message_new_request, libaws_c_http), Ptr{aws_http_message}, (Ptr{aws_allocator},), allocator)
+    ccall((:aws_http2_message_new_request, libaws_c_http_jq), Ptr{aws_http_message}, (Ptr{aws_allocator},), allocator)
 end
 
 """
@@ -2218,7 +2218,7 @@ struct aws_http_message *aws_http2_message_new_response(struct aws_allocator *al
 ```
 """
 function aws_http2_message_new_response(allocator)
-    ccall((:aws_http2_message_new_response, libaws_c_http), Ptr{aws_http_message}, (Ptr{aws_allocator},), allocator)
+    ccall((:aws_http2_message_new_response, libaws_c_http_jq), Ptr{aws_http_message}, (Ptr{aws_allocator},), allocator)
 end
 
 """
@@ -2232,7 +2232,7 @@ struct aws_http_message *aws_http2_message_new_from_http1( struct aws_allocator 
 ```
 """
 function aws_http2_message_new_from_http1(alloc, http1_msg)
-    ccall((:aws_http2_message_new_from_http1, libaws_c_http), Ptr{aws_http_message}, (Ptr{aws_allocator}, Ptr{aws_http_message}), alloc, http1_msg)
+    ccall((:aws_http2_message_new_from_http1, libaws_c_http_jq), Ptr{aws_http_message}, (Ptr{aws_allocator}, Ptr{aws_http_message}), alloc, http1_msg)
 end
 
 """
@@ -2248,7 +2248,7 @@ struct aws_http_message *aws_http_message_acquire(struct aws_http_message *messa
 ```
 """
 function aws_http_message_acquire(message)
-    ccall((:aws_http_message_acquire, libaws_c_http), Ptr{aws_http_message}, (Ptr{aws_http_message},), message)
+    ccall((:aws_http_message_acquire, libaws_c_http_jq), Ptr{aws_http_message}, (Ptr{aws_http_message},), message)
 end
 
 """
@@ -2264,7 +2264,7 @@ struct aws_http_message *aws_http_message_release(struct aws_http_message *messa
 ```
 """
 function aws_http_message_release(message)
-    ccall((:aws_http_message_release, libaws_c_http), Ptr{aws_http_message}, (Ptr{aws_http_message},), message)
+    ccall((:aws_http_message_release, libaws_c_http_jq), Ptr{aws_http_message}, (Ptr{aws_http_message},), message)
 end
 
 """
@@ -2278,7 +2278,7 @@ void aws_http_message_destroy(struct aws_http_message *message);
 ```
 """
 function aws_http_message_destroy(message)
-    ccall((:aws_http_message_destroy, libaws_c_http), Cvoid, (Ptr{aws_http_message},), message)
+    ccall((:aws_http_message_destroy, libaws_c_http_jq), Cvoid, (Ptr{aws_http_message},), message)
 end
 
 """
@@ -2291,7 +2291,7 @@ bool aws_http_message_is_request(const struct aws_http_message *message);
 ```
 """
 function aws_http_message_is_request(message)
-    ccall((:aws_http_message_is_request, libaws_c_http), Bool, (Ptr{aws_http_message},), message)
+    ccall((:aws_http_message_is_request, libaws_c_http_jq), Bool, (Ptr{aws_http_message},), message)
 end
 
 """
@@ -2304,7 +2304,7 @@ bool aws_http_message_is_response(const struct aws_http_message *message);
 ```
 """
 function aws_http_message_is_response(message)
-    ccall((:aws_http_message_is_response, libaws_c_http), Bool, (Ptr{aws_http_message},), message)
+    ccall((:aws_http_message_is_response, libaws_c_http_jq), Bool, (Ptr{aws_http_message},), message)
 end
 
 """
@@ -2318,7 +2318,7 @@ enum aws_http_version aws_http_message_get_protocol_version(const struct aws_htt
 ```
 """
 function aws_http_message_get_protocol_version(message)
-    ccall((:aws_http_message_get_protocol_version, libaws_c_http), aws_http_version, (Ptr{aws_http_message},), message)
+    ccall((:aws_http_message_get_protocol_version, libaws_c_http_jq), aws_http_version, (Ptr{aws_http_message},), message)
 end
 
 """
@@ -2332,7 +2332,7 @@ int aws_http_message_get_request_method( const struct aws_http_message *request_
 ```
 """
 function aws_http_message_get_request_method(request_message, out_method)
-    ccall((:aws_http_message_get_request_method, libaws_c_http), Cint, (Ptr{aws_http_message}, Ptr{aws_byte_cursor}), request_message, out_method)
+    ccall((:aws_http_message_get_request_method, libaws_c_http_jq), Cint, (Ptr{aws_http_message}, Ptr{aws_byte_cursor}), request_message, out_method)
 end
 
 """
@@ -2346,7 +2346,7 @@ int aws_http_message_set_request_method(struct aws_http_message *request_message
 ```
 """
 function aws_http_message_set_request_method(request_message, method)
-    ccall((:aws_http_message_set_request_method, libaws_c_http), Cint, (Ptr{aws_http_message}, aws_byte_cursor), request_message, method)
+    ccall((:aws_http_message_set_request_method, libaws_c_http_jq), Cint, (Ptr{aws_http_message}, aws_byte_cursor), request_message, method)
 end
 
 """
@@ -2359,7 +2359,7 @@ int aws_http_message_get_request_path(const struct aws_http_message *request_mes
 ```
 """
 function aws_http_message_get_request_path(request_message, out_path)
-    ccall((:aws_http_message_get_request_path, libaws_c_http), Cint, (Ptr{aws_http_message}, Ptr{aws_byte_cursor}), request_message, out_path)
+    ccall((:aws_http_message_get_request_path, libaws_c_http_jq), Cint, (Ptr{aws_http_message}, Ptr{aws_byte_cursor}), request_message, out_path)
 end
 
 """
@@ -2373,7 +2373,7 @@ int aws_http_message_set_request_path(struct aws_http_message *request_message, 
 ```
 """
 function aws_http_message_set_request_path(request_message, path)
-    ccall((:aws_http_message_set_request_path, libaws_c_http), Cint, (Ptr{aws_http_message}, aws_byte_cursor), request_message, path)
+    ccall((:aws_http_message_set_request_path, libaws_c_http_jq), Cint, (Ptr{aws_http_message}, aws_byte_cursor), request_message, path)
 end
 
 """
@@ -2387,7 +2387,7 @@ int aws_http_message_get_response_status(const struct aws_http_message *response
 ```
 """
 function aws_http_message_get_response_status(response_message, out_status_code)
-    ccall((:aws_http_message_get_response_status, libaws_c_http), Cint, (Ptr{aws_http_message}, Ptr{Cint}), response_message, out_status_code)
+    ccall((:aws_http_message_get_response_status, libaws_c_http_jq), Cint, (Ptr{aws_http_message}, Ptr{Cint}), response_message, out_status_code)
 end
 
 """
@@ -2401,7 +2401,7 @@ int aws_http_message_set_response_status(struct aws_http_message *response_messa
 ```
 """
 function aws_http_message_set_response_status(response_message, status_code)
-    ccall((:aws_http_message_set_response_status, libaws_c_http), Cint, (Ptr{aws_http_message}, Cint), response_message, status_code)
+    ccall((:aws_http_message_set_response_status, libaws_c_http_jq), Cint, (Ptr{aws_http_message}, Cint), response_message, status_code)
 end
 
 """
@@ -2415,7 +2415,7 @@ struct aws_input_stream *aws_http_message_get_body_stream(const struct aws_http_
 ```
 """
 function aws_http_message_get_body_stream(message)
-    ccall((:aws_http_message_get_body_stream, libaws_c_http), Ptr{aws_input_stream}, (Ptr{aws_http_message},), message)
+    ccall((:aws_http_message_get_body_stream, libaws_c_http_jq), Ptr{aws_input_stream}, (Ptr{aws_http_message},), message)
 end
 
 """
@@ -2429,7 +2429,7 @@ void aws_http_message_set_body_stream(struct aws_http_message *message, struct a
 ```
 """
 function aws_http_message_set_body_stream(message, body_stream)
-    ccall((:aws_http_message_set_body_stream, libaws_c_http), Cvoid, (Ptr{aws_http_message}, Ptr{aws_input_stream}), message, body_stream)
+    ccall((:aws_http_message_set_body_stream, libaws_c_http_jq), Cvoid, (Ptr{aws_http_message}, Ptr{aws_input_stream}), message, body_stream)
 end
 
 """
@@ -2447,7 +2447,7 @@ AWS_FUTURE_T_POINTER_WITH_RELEASE_DECLARATION(aws_future_http_message, struct aw
 ```
 """
 function aws_future_http_message_new(alloc)
-    ccall((:aws_future_http_message_new, libaws_c_http), Ptr{aws_future_http_message}, (Ptr{aws_allocator},), alloc)
+    ccall((:aws_future_http_message_new, libaws_c_http_jq), Ptr{aws_future_http_message}, (Ptr{aws_allocator},), alloc)
 end
 
 """
@@ -2460,7 +2460,7 @@ AWS_FUTURE_T_POINTER_WITH_RELEASE_DECLARATION(aws_future_http_message, struct aw
 ```
 """
 function aws_future_http_message_set_result_by_move(future, pointer_address)
-    ccall((:aws_future_http_message_set_result_by_move, libaws_c_http), Cvoid, (Ptr{aws_future_http_message}, Ptr{Ptr{aws_http_message}}), future, pointer_address)
+    ccall((:aws_future_http_message_set_result_by_move, libaws_c_http_jq), Cvoid, (Ptr{aws_future_http_message}, Ptr{Ptr{aws_http_message}}), future, pointer_address)
 end
 
 """
@@ -2473,7 +2473,7 @@ AWS_FUTURE_T_POINTER_WITH_RELEASE_DECLARATION(aws_future_http_message, struct aw
 ```
 """
 function aws_future_http_message_get_result_by_move(future)
-    ccall((:aws_future_http_message_get_result_by_move, libaws_c_http), Ptr{aws_http_message}, (Ptr{aws_future_http_message},), future)
+    ccall((:aws_future_http_message_get_result_by_move, libaws_c_http_jq), Ptr{aws_http_message}, (Ptr{aws_future_http_message},), future)
 end
 
 """
@@ -2486,7 +2486,7 @@ AWS_FUTURE_T_POINTER_WITH_RELEASE_DECLARATION(aws_future_http_message, struct aw
 ```
 """
 function aws_future_http_message_peek_result(future)
-    ccall((:aws_future_http_message_peek_result, libaws_c_http), Ptr{aws_http_message}, (Ptr{aws_future_http_message},), future)
+    ccall((:aws_future_http_message_peek_result, libaws_c_http_jq), Ptr{aws_http_message}, (Ptr{aws_future_http_message},), future)
 end
 
 """
@@ -2499,7 +2499,7 @@ AWS_FUTURE_T_POINTER_WITH_RELEASE_DECLARATION(aws_future_http_message, struct aw
 ```
 """
 function aws_future_http_message_acquire(future)
-    ccall((:aws_future_http_message_acquire, libaws_c_http), Ptr{aws_future_http_message}, (Ptr{aws_future_http_message},), future)
+    ccall((:aws_future_http_message_acquire, libaws_c_http_jq), Ptr{aws_future_http_message}, (Ptr{aws_future_http_message},), future)
 end
 
 """
@@ -2512,7 +2512,7 @@ AWS_FUTURE_T_POINTER_WITH_RELEASE_DECLARATION(aws_future_http_message, struct aw
 ```
 """
 function aws_future_http_message_release(future)
-    ccall((:aws_future_http_message_release, libaws_c_http), Ptr{aws_future_http_message}, (Ptr{aws_future_http_message},), future)
+    ccall((:aws_future_http_message_release, libaws_c_http_jq), Ptr{aws_future_http_message}, (Ptr{aws_future_http_message},), future)
 end
 
 """
@@ -2525,7 +2525,7 @@ AWS_FUTURE_T_POINTER_WITH_RELEASE_DECLARATION(aws_future_http_message, struct aw
 ```
 """
 function aws_future_http_message_set_error(future, error_code)
-    ccall((:aws_future_http_message_set_error, libaws_c_http), Cvoid, (Ptr{aws_future_http_message}, Cint), future, error_code)
+    ccall((:aws_future_http_message_set_error, libaws_c_http_jq), Cvoid, (Ptr{aws_future_http_message}, Cint), future, error_code)
 end
 
 """
@@ -2538,7 +2538,7 @@ AWS_FUTURE_T_POINTER_WITH_RELEASE_DECLARATION(aws_future_http_message, struct aw
 ```
 """
 function aws_future_http_message_is_done(future)
-    ccall((:aws_future_http_message_is_done, libaws_c_http), Bool, (Ptr{aws_future_http_message},), future)
+    ccall((:aws_future_http_message_is_done, libaws_c_http_jq), Bool, (Ptr{aws_future_http_message},), future)
 end
 
 """
@@ -2551,7 +2551,7 @@ AWS_FUTURE_T_POINTER_WITH_RELEASE_DECLARATION(aws_future_http_message, struct aw
 ```
 """
 function aws_future_http_message_get_error(future)
-    ccall((:aws_future_http_message_get_error, libaws_c_http), Cint, (Ptr{aws_future_http_message},), future)
+    ccall((:aws_future_http_message_get_error, libaws_c_http_jq), Cint, (Ptr{aws_future_http_message},), future)
 end
 
 """
@@ -2564,7 +2564,7 @@ AWS_FUTURE_T_POINTER_WITH_RELEASE_DECLARATION(aws_future_http_message, struct aw
 ```
 """
 function aws_future_http_message_register_callback(future, on_done, user_data)
-    ccall((:aws_future_http_message_register_callback, libaws_c_http), Cvoid, (Ptr{aws_future_http_message}, Ptr{aws_future_callback_fn}, Ptr{Cvoid}), future, on_done, user_data)
+    ccall((:aws_future_http_message_register_callback, libaws_c_http_jq), Cvoid, (Ptr{aws_future_http_message}, Ptr{aws_future_callback_fn}, Ptr{Cvoid}), future, on_done, user_data)
 end
 
 """
@@ -2577,7 +2577,7 @@ AWS_FUTURE_T_POINTER_WITH_RELEASE_DECLARATION(aws_future_http_message, struct aw
 ```
 """
 function aws_future_http_message_register_callback_if_not_done(future, on_done, user_data)
-    ccall((:aws_future_http_message_register_callback_if_not_done, libaws_c_http), Bool, (Ptr{aws_future_http_message}, Ptr{aws_future_callback_fn}, Ptr{Cvoid}), future, on_done, user_data)
+    ccall((:aws_future_http_message_register_callback_if_not_done, libaws_c_http_jq), Bool, (Ptr{aws_future_http_message}, Ptr{aws_future_callback_fn}, Ptr{Cvoid}), future, on_done, user_data)
 end
 
 """
@@ -2590,7 +2590,7 @@ AWS_FUTURE_T_POINTER_WITH_RELEASE_DECLARATION(aws_future_http_message, struct aw
 ```
 """
 function aws_future_http_message_register_event_loop_callback(future, event_loop, on_done, user_data)
-    ccall((:aws_future_http_message_register_event_loop_callback, libaws_c_http), Cvoid, (Ptr{aws_future_http_message}, Ptr{aws_event_loop}, Ptr{aws_future_callback_fn}, Ptr{Cvoid}), future, event_loop, on_done, user_data)
+    ccall((:aws_future_http_message_register_event_loop_callback, libaws_c_http_jq), Cvoid, (Ptr{aws_future_http_message}, Ptr{aws_event_loop}, Ptr{aws_future_callback_fn}, Ptr{Cvoid}), future, event_loop, on_done, user_data)
 end
 
 """
@@ -2603,7 +2603,7 @@ AWS_FUTURE_T_POINTER_WITH_RELEASE_DECLARATION(aws_future_http_message, struct aw
 ```
 """
 function aws_future_http_message_register_channel_callback(future, channel, on_done, user_data)
-    ccall((:aws_future_http_message_register_channel_callback, libaws_c_http), Cvoid, (Ptr{aws_future_http_message}, Ptr{Cvoid}, Ptr{aws_future_callback_fn}, Ptr{Cvoid}), future, channel, on_done, user_data)
+    ccall((:aws_future_http_message_register_channel_callback, libaws_c_http_jq), Cvoid, (Ptr{aws_future_http_message}, Ptr{Cvoid}, Ptr{aws_future_callback_fn}, Ptr{Cvoid}), future, channel, on_done, user_data)
 end
 
 """
@@ -2616,7 +2616,7 @@ AWS_FUTURE_T_POINTER_WITH_RELEASE_DECLARATION(aws_future_http_message, struct aw
 ```
 """
 function aws_future_http_message_wait(future, timeout_ns)
-    ccall((:aws_future_http_message_wait, libaws_c_http), Bool, (Ptr{aws_future_http_message}, UInt64), future, timeout_ns)
+    ccall((:aws_future_http_message_wait, libaws_c_http_jq), Bool, (Ptr{aws_future_http_message}, UInt64), future, timeout_ns)
 end
 
 """
@@ -2634,7 +2634,7 @@ int aws_http1_stream_write_chunk( struct aws_http_stream *http1_stream, const st
 ```
 """
 function aws_http1_stream_write_chunk(http1_stream, options)
-    ccall((:aws_http1_stream_write_chunk, libaws_c_http), Cint, (Ptr{aws_http_stream}, Ptr{aws_http1_chunk_options}), http1_stream, options)
+    ccall((:aws_http1_stream_write_chunk, libaws_c_http_jq), Cint, (Ptr{aws_http_stream}, Ptr{aws_http1_chunk_options}), http1_stream, options)
 end
 
 """
@@ -2652,7 +2652,7 @@ int aws_http2_stream_write_data( struct aws_http_stream *http2_stream, const str
 ```
 """
 function aws_http2_stream_write_data(http2_stream, options)
-    ccall((:aws_http2_stream_write_data, libaws_c_http), Cint, (Ptr{aws_http_stream}, Ptr{aws_http2_stream_write_data_options}), http2_stream, options)
+    ccall((:aws_http2_stream_write_data, libaws_c_http_jq), Cint, (Ptr{aws_http_stream}, Ptr{aws_http2_stream_write_data_options}), http2_stream, options)
 end
 
 """
@@ -2676,7 +2676,7 @@ int aws_http1_stream_add_chunked_trailer( struct aws_http_stream *http1_stream, 
 ```
 """
 function aws_http1_stream_add_chunked_trailer(http1_stream, trailing_headers)
-    ccall((:aws_http1_stream_add_chunked_trailer, libaws_c_http), Cint, (Ptr{aws_http_stream}, Ptr{aws_http_headers}), http1_stream, trailing_headers)
+    ccall((:aws_http1_stream_add_chunked_trailer, libaws_c_http_jq), Cint, (Ptr{aws_http_stream}, Ptr{aws_http_headers}), http1_stream, trailing_headers)
 end
 
 """
@@ -2690,7 +2690,7 @@ struct aws_http_headers *aws_http_message_get_headers(const struct aws_http_mess
 ```
 """
 function aws_http_message_get_headers(message)
-    ccall((:aws_http_message_get_headers, libaws_c_http), Ptr{aws_http_headers}, (Ptr{aws_http_message},), message)
+    ccall((:aws_http_message_get_headers, libaws_c_http_jq), Ptr{aws_http_headers}, (Ptr{aws_http_message},), message)
 end
 
 """
@@ -2704,7 +2704,7 @@ const struct aws_http_headers *aws_http_message_get_const_headers(const struct a
 ```
 """
 function aws_http_message_get_const_headers(message)
-    ccall((:aws_http_message_get_const_headers, libaws_c_http), Ptr{aws_http_headers}, (Ptr{aws_http_message},), message)
+    ccall((:aws_http_message_get_const_headers, libaws_c_http_jq), Ptr{aws_http_headers}, (Ptr{aws_http_message},), message)
 end
 
 """
@@ -2718,7 +2718,7 @@ size_t aws_http_message_get_header_count(const struct aws_http_message *message)
 ```
 """
 function aws_http_message_get_header_count(message)
-    ccall((:aws_http_message_get_header_count, libaws_c_http), Csize_t, (Ptr{aws_http_message},), message)
+    ccall((:aws_http_message_get_header_count, libaws_c_http_jq), Csize_t, (Ptr{aws_http_message},), message)
 end
 
 """
@@ -2734,7 +2734,7 @@ int aws_http_message_get_header( const struct aws_http_message *message, struct 
 ```
 """
 function aws_http_message_get_header(message, out_header, index)
-    ccall((:aws_http_message_get_header, libaws_c_http), Cint, (Ptr{aws_http_message}, Ptr{aws_http_header}, Csize_t), message, out_header, index)
+    ccall((:aws_http_message_get_header, libaws_c_http_jq), Cint, (Ptr{aws_http_message}, Ptr{aws_http_header}, Csize_t), message, out_header, index)
 end
 
 """
@@ -2748,7 +2748,7 @@ int aws_http_message_add_header(struct aws_http_message *message, struct aws_htt
 ```
 """
 function aws_http_message_add_header(message, header)
-    ccall((:aws_http_message_add_header, libaws_c_http), Cint, (Ptr{aws_http_message}, aws_http_header), message, header)
+    ccall((:aws_http_message_add_header, libaws_c_http_jq), Cint, (Ptr{aws_http_message}, aws_http_header), message, header)
 end
 
 """
@@ -2764,7 +2764,7 @@ int aws_http_message_add_header_array( struct aws_http_message *message, const s
 ```
 """
 function aws_http_message_add_header_array(message, headers, num_headers)
-    ccall((:aws_http_message_add_header_array, libaws_c_http), Cint, (Ptr{aws_http_message}, Ptr{aws_http_header}, Csize_t), message, headers, num_headers)
+    ccall((:aws_http_message_add_header_array, libaws_c_http_jq), Cint, (Ptr{aws_http_message}, Ptr{aws_http_header}, Csize_t), message, headers, num_headers)
 end
 
 """
@@ -2780,7 +2780,7 @@ int aws_http_message_erase_header(struct aws_http_message *message, size_t index
 ```
 """
 function aws_http_message_erase_header(message, index)
-    ccall((:aws_http_message_erase_header, libaws_c_http), Cint, (Ptr{aws_http_message}, Csize_t), message, index)
+    ccall((:aws_http_message_erase_header, libaws_c_http_jq), Cint, (Ptr{aws_http_message}, Csize_t), message, index)
 end
 
 """
@@ -2800,7 +2800,7 @@ struct aws_http_stream *aws_http_connection_make_request( struct aws_http_connec
 ```
 """
 function aws_http_connection_make_request(client_connection, options)
-    ccall((:aws_http_connection_make_request, libaws_c_http), Ptr{aws_http_stream}, (Ptr{aws_http_connection}, Ptr{aws_http_make_request_options}), client_connection, options)
+    ccall((:aws_http_connection_make_request, libaws_c_http_jq), Ptr{aws_http_stream}, (Ptr{aws_http_connection}, Ptr{aws_http_make_request_options}), client_connection, options)
 end
 
 """
@@ -2814,7 +2814,7 @@ struct aws_http_stream *aws_http_stream_new_server_request_handler( const struct
 ```
 """
 function aws_http_stream_new_server_request_handler(options)
-    ccall((:aws_http_stream_new_server_request_handler, libaws_c_http), Ptr{aws_http_stream}, (Ptr{aws_http_request_handler_options},), options)
+    ccall((:aws_http_stream_new_server_request_handler, libaws_c_http_jq), Ptr{aws_http_stream}, (Ptr{aws_http_request_handler_options},), options)
 end
 
 """
@@ -2828,7 +2828,7 @@ struct aws_http_stream *aws_http_stream_acquire(struct aws_http_stream *stream);
 ```
 """
 function aws_http_stream_acquire(stream)
-    ccall((:aws_http_stream_acquire, libaws_c_http), Ptr{aws_http_stream}, (Ptr{aws_http_stream},), stream)
+    ccall((:aws_http_stream_acquire, libaws_c_http_jq), Ptr{aws_http_stream}, (Ptr{aws_http_stream},), stream)
 end
 
 """
@@ -2844,7 +2844,7 @@ void aws_http_stream_release(struct aws_http_stream *stream);
 ```
 """
 function aws_http_stream_release(stream)
-    ccall((:aws_http_stream_release, libaws_c_http), Cvoid, (Ptr{aws_http_stream},), stream)
+    ccall((:aws_http_stream_release, libaws_c_http_jq), Cvoid, (Ptr{aws_http_stream},), stream)
 end
 
 """
@@ -2860,7 +2860,7 @@ int aws_http_stream_activate(struct aws_http_stream *stream);
 ```
 """
 function aws_http_stream_activate(stream)
-    ccall((:aws_http_stream_activate, libaws_c_http), Cint, (Ptr{aws_http_stream},), stream)
+    ccall((:aws_http_stream_activate, libaws_c_http_jq), Cint, (Ptr{aws_http_stream},), stream)
 end
 
 """
@@ -2873,7 +2873,7 @@ struct aws_http_connection *aws_http_stream_get_connection(const struct aws_http
 ```
 """
 function aws_http_stream_get_connection(stream)
-    ccall((:aws_http_stream_get_connection, libaws_c_http), Ptr{aws_http_connection}, (Ptr{aws_http_stream},), stream)
+    ccall((:aws_http_stream_get_connection, libaws_c_http_jq), Ptr{aws_http_connection}, (Ptr{aws_http_stream},), stream)
 end
 
 """
@@ -2886,7 +2886,7 @@ int aws_http_stream_get_incoming_response_status(const struct aws_http_stream *s
 ```
 """
 function aws_http_stream_get_incoming_response_status(stream, out_status)
-    ccall((:aws_http_stream_get_incoming_response_status, libaws_c_http), Cint, (Ptr{aws_http_stream}, Ptr{Cint}), stream, out_status)
+    ccall((:aws_http_stream_get_incoming_response_status, libaws_c_http_jq), Cint, (Ptr{aws_http_stream}, Ptr{Cint}), stream, out_status)
 end
 
 """
@@ -2899,7 +2899,7 @@ int aws_http_stream_get_incoming_request_method( const struct aws_http_stream *s
 ```
 """
 function aws_http_stream_get_incoming_request_method(stream, out_method)
-    ccall((:aws_http_stream_get_incoming_request_method, libaws_c_http), Cint, (Ptr{aws_http_stream}, Ptr{aws_byte_cursor}), stream, out_method)
+    ccall((:aws_http_stream_get_incoming_request_method, libaws_c_http_jq), Cint, (Ptr{aws_http_stream}, Ptr{aws_byte_cursor}), stream, out_method)
 end
 
 """
@@ -2912,7 +2912,7 @@ int aws_http_stream_get_incoming_request_uri(const struct aws_http_stream *strea
 ```
 """
 function aws_http_stream_get_incoming_request_uri(stream, out_uri)
-    ccall((:aws_http_stream_get_incoming_request_uri, libaws_c_http), Cint, (Ptr{aws_http_stream}, Ptr{aws_byte_cursor}), stream, out_uri)
+    ccall((:aws_http_stream_get_incoming_request_uri, libaws_c_http_jq), Cint, (Ptr{aws_http_stream}, Ptr{aws_byte_cursor}), stream, out_uri)
 end
 
 """
@@ -2926,7 +2926,7 @@ int aws_http_stream_send_response(struct aws_http_stream *stream, struct aws_htt
 ```
 """
 function aws_http_stream_send_response(stream, response)
-    ccall((:aws_http_stream_send_response, libaws_c_http), Cint, (Ptr{aws_http_stream}, Ptr{aws_http_message}), stream, response)
+    ccall((:aws_http_stream_send_response, libaws_c_http_jq), Cint, (Ptr{aws_http_stream}, Ptr{aws_http_message}), stream, response)
 end
 
 """
@@ -2944,7 +2944,7 @@ void aws_http_stream_update_window(struct aws_http_stream *stream, size_t increm
 ```
 """
 function aws_http_stream_update_window(stream, increment_size)
-    ccall((:aws_http_stream_update_window, libaws_c_http), Cvoid, (Ptr{aws_http_stream}, Csize_t), stream, increment_size)
+    ccall((:aws_http_stream_update_window, libaws_c_http_jq), Cvoid, (Ptr{aws_http_stream}, Csize_t), stream, increment_size)
 end
 
 """
@@ -2958,7 +2958,7 @@ uint32_t aws_http_stream_get_id(const struct aws_http_stream *stream);
 ```
 """
 function aws_http_stream_get_id(stream)
-    ccall((:aws_http_stream_get_id, libaws_c_http), UInt32, (Ptr{aws_http_stream},), stream)
+    ccall((:aws_http_stream_get_id, libaws_c_http_jq), UInt32, (Ptr{aws_http_stream},), stream)
 end
 
 """
@@ -2974,7 +2974,7 @@ void aws_http_stream_cancel(struct aws_http_stream *stream, int error_code);
 ```
 """
 function aws_http_stream_cancel(stream, error_code)
-    ccall((:aws_http_stream_cancel, libaws_c_http), Cvoid, (Ptr{aws_http_stream}, Cint), stream, error_code)
+    ccall((:aws_http_stream_cancel, libaws_c_http_jq), Cvoid, (Ptr{aws_http_stream}, Cint), stream, error_code)
 end
 
 """
@@ -2991,7 +2991,7 @@ int aws_http2_stream_reset(struct aws_http_stream *http2_stream, uint32_t http2_
 ```
 """
 function aws_http2_stream_reset(http2_stream, http2_error)
-    ccall((:aws_http2_stream_reset, libaws_c_http), Cint, (Ptr{aws_http_stream}, UInt32), http2_stream, http2_error)
+    ccall((:aws_http2_stream_reset, libaws_c_http_jq), Cint, (Ptr{aws_http_stream}, UInt32), http2_stream, http2_error)
 end
 
 """
@@ -3008,7 +3008,7 @@ int aws_http2_stream_get_received_reset_error_code(struct aws_http_stream *http2
 ```
 """
 function aws_http2_stream_get_received_reset_error_code(http2_stream, out_http2_error)
-    ccall((:aws_http2_stream_get_received_reset_error_code, libaws_c_http), Cint, (Ptr{aws_http_stream}, Ptr{UInt32}), http2_stream, out_http2_error)
+    ccall((:aws_http2_stream_get_received_reset_error_code, libaws_c_http_jq), Cint, (Ptr{aws_http_stream}, Ptr{UInt32}), http2_stream, out_http2_error)
 end
 
 """
@@ -3025,7 +3025,7 @@ int aws_http2_stream_get_sent_reset_error_code(struct aws_http_stream *http2_str
 ```
 """
 function aws_http2_stream_get_sent_reset_error_code(http2_stream, out_http2_error)
-    ccall((:aws_http2_stream_get_sent_reset_error_code, libaws_c_http), Cint, (Ptr{aws_http_stream}, Ptr{UInt32}), http2_stream, out_http2_error)
+    ccall((:aws_http2_stream_get_sent_reset_error_code, libaws_c_http_jq), Cint, (Ptr{aws_http_stream}, Ptr{UInt32}), http2_stream, out_http2_error)
 end
 
 """
@@ -3099,7 +3099,7 @@ struct aws_http_server *aws_http_server_new(const struct aws_http_server_options
 ```
 """
 function aws_http_server_new(options)
-    ccall((:aws_http_server_new, libaws_c_http), Ptr{aws_http_server}, (Ptr{aws_http_server_options},), options)
+    ccall((:aws_http_server_new, libaws_c_http_jq), Ptr{aws_http_server}, (Ptr{aws_http_server_options},), options)
 end
 
 """
@@ -3113,7 +3113,7 @@ void aws_http_server_release(struct aws_http_server *server);
 ```
 """
 function aws_http_server_release(server)
-    ccall((:aws_http_server_release, libaws_c_http), Cvoid, (Ptr{aws_http_server},), server)
+    ccall((:aws_http_server_release, libaws_c_http_jq), Cvoid, (Ptr{aws_http_server},), server)
 end
 
 """
@@ -3127,7 +3127,7 @@ int aws_http_connection_configure_server( struct aws_http_connection *connection
 ```
 """
 function aws_http_connection_configure_server(connection, options)
-    ccall((:aws_http_connection_configure_server, libaws_c_http), Cint, (Ptr{aws_http_connection}, Ptr{aws_http_server_connection_options}), connection, options)
+    ccall((:aws_http_connection_configure_server, libaws_c_http_jq), Cint, (Ptr{aws_http_connection}, Ptr{aws_http_server_connection_options}), connection, options)
 end
 
 """
@@ -3141,7 +3141,7 @@ bool aws_http_connection_is_server(const struct aws_http_connection *connection)
 ```
 """
 function aws_http_connection_is_server(connection)
-    ccall((:aws_http_connection_is_server, libaws_c_http), Bool, (Ptr{aws_http_connection},), connection)
+    ccall((:aws_http_connection_is_server, libaws_c_http_jq), Bool, (Ptr{aws_http_connection},), connection)
 end
 
 """
@@ -3155,7 +3155,7 @@ const struct aws_socket_endpoint *aws_http_server_get_listener_endpoint(const st
 ```
 """
 function aws_http_server_get_listener_endpoint(server)
-    ccall((:aws_http_server_get_listener_endpoint, libaws_c_http), Ptr{aws_socket_endpoint}, (Ptr{aws_http_server},), server)
+    ccall((:aws_http_server_get_listener_endpoint, libaws_c_http_jq), Ptr{aws_socket_endpoint}, (Ptr{aws_http_server},), server)
 end
 
 """
@@ -3204,7 +3204,7 @@ int aws_crt_statistics_http1_channel_init(struct aws_crt_statistics_http1_channe
 ```
 """
 function aws_crt_statistics_http1_channel_init(stats)
-    ccall((:aws_crt_statistics_http1_channel_init, libaws_c_http), Cint, (Ptr{aws_crt_statistics_http1_channel},), stats)
+    ccall((:aws_crt_statistics_http1_channel_init, libaws_c_http_jq), Cint, (Ptr{aws_crt_statistics_http1_channel},), stats)
 end
 
 """
@@ -3218,7 +3218,7 @@ void aws_crt_statistics_http1_channel_cleanup(struct aws_crt_statistics_http1_ch
 ```
 """
 function aws_crt_statistics_http1_channel_cleanup(stats)
-    ccall((:aws_crt_statistics_http1_channel_cleanup, libaws_c_http), Cvoid, (Ptr{aws_crt_statistics_http1_channel},), stats)
+    ccall((:aws_crt_statistics_http1_channel_cleanup, libaws_c_http_jq), Cvoid, (Ptr{aws_crt_statistics_http1_channel},), stats)
 end
 
 """
@@ -3232,7 +3232,7 @@ void aws_crt_statistics_http1_channel_reset(struct aws_crt_statistics_http1_chan
 ```
 """
 function aws_crt_statistics_http1_channel_reset(stats)
-    ccall((:aws_crt_statistics_http1_channel_reset, libaws_c_http), Cvoid, (Ptr{aws_crt_statistics_http1_channel},), stats)
+    ccall((:aws_crt_statistics_http1_channel_reset, libaws_c_http_jq), Cvoid, (Ptr{aws_crt_statistics_http1_channel},), stats)
 end
 
 """
@@ -3246,7 +3246,7 @@ void aws_crt_statistics_http2_channel_init(struct aws_crt_statistics_http2_chann
 ```
 """
 function aws_crt_statistics_http2_channel_init(stats)
-    ccall((:aws_crt_statistics_http2_channel_init, libaws_c_http), Cvoid, (Ptr{aws_crt_statistics_http2_channel},), stats)
+    ccall((:aws_crt_statistics_http2_channel_init, libaws_c_http_jq), Cvoid, (Ptr{aws_crt_statistics_http2_channel},), stats)
 end
 
 """
@@ -3260,7 +3260,7 @@ void aws_crt_statistics_http2_channel_reset(struct aws_crt_statistics_http2_chan
 ```
 """
 function aws_crt_statistics_http2_channel_reset(stats)
-    ccall((:aws_crt_statistics_http2_channel_reset, libaws_c_http), Cvoid, (Ptr{aws_crt_statistics_http2_channel},), stats)
+    ccall((:aws_crt_statistics_http2_channel_reset, libaws_c_http_jq), Cvoid, (Ptr{aws_crt_statistics_http2_channel},), stats)
 end
 
 """
@@ -3484,7 +3484,7 @@ bool aws_websocket_is_data_frame(uint8_t opcode);
 ```
 """
 function aws_websocket_is_data_frame(opcode)
-    ccall((:aws_websocket_is_data_frame, libaws_c_http), Bool, (UInt8,), opcode)
+    ccall((:aws_websocket_is_data_frame, libaws_c_http_jq), Bool, (UInt8,), opcode)
 end
 
 """
@@ -3498,7 +3498,7 @@ int aws_websocket_client_connect(const struct aws_websocket_client_connection_op
 ```
 """
 function aws_websocket_client_connect(options)
-    ccall((:aws_websocket_client_connect, libaws_c_http), Cint, (Ptr{aws_websocket_client_connection_options},), options)
+    ccall((:aws_websocket_client_connect, libaws_c_http_jq), Cint, (Ptr{aws_websocket_client_connection_options},), options)
 end
 
 """
@@ -3514,7 +3514,7 @@ struct aws_websocket *aws_websocket_acquire(struct aws_websocket *websocket);
 ```
 """
 function aws_websocket_acquire(websocket)
-    ccall((:aws_websocket_acquire, libaws_c_http), Ptr{aws_websocket}, (Ptr{aws_websocket},), websocket)
+    ccall((:aws_websocket_acquire, libaws_c_http_jq), Ptr{aws_websocket}, (Ptr{aws_websocket},), websocket)
 end
 
 """
@@ -3530,7 +3530,7 @@ void aws_websocket_release(struct aws_websocket *websocket);
 ```
 """
 function aws_websocket_release(websocket)
-    ccall((:aws_websocket_release, libaws_c_http), Cvoid, (Ptr{aws_websocket},), websocket)
+    ccall((:aws_websocket_release, libaws_c_http_jq), Cvoid, (Ptr{aws_websocket},), websocket)
 end
 
 """
@@ -3544,7 +3544,7 @@ void aws_websocket_close(struct aws_websocket *websocket, bool free_scarce_resou
 ```
 """
 function aws_websocket_close(websocket, free_scarce_resources_immediately)
-    ccall((:aws_websocket_close, libaws_c_http), Cvoid, (Ptr{aws_websocket}, Bool), websocket, free_scarce_resources_immediately)
+    ccall((:aws_websocket_close, libaws_c_http_jq), Cvoid, (Ptr{aws_websocket}, Bool), websocket, free_scarce_resources_immediately)
 end
 
 """
@@ -3558,7 +3558,7 @@ int aws_websocket_send_frame(struct aws_websocket *websocket, const struct aws_w
 ```
 """
 function aws_websocket_send_frame(websocket, options)
-    ccall((:aws_websocket_send_frame, libaws_c_http), Cint, (Ptr{aws_websocket}, Ptr{aws_websocket_send_frame_options}), websocket, options)
+    ccall((:aws_websocket_send_frame, libaws_c_http_jq), Cint, (Ptr{aws_websocket}, Ptr{aws_websocket_send_frame_options}), websocket, options)
 end
 
 """
@@ -3578,7 +3578,7 @@ void aws_websocket_increment_read_window(struct aws_websocket *websocket, size_t
 ```
 """
 function aws_websocket_increment_read_window(websocket, size)
-    ccall((:aws_websocket_increment_read_window, libaws_c_http), Cvoid, (Ptr{aws_websocket}, Csize_t), websocket, size)
+    ccall((:aws_websocket_increment_read_window, libaws_c_http_jq), Cvoid, (Ptr{aws_websocket}, Csize_t), websocket, size)
 end
 
 """
@@ -3596,7 +3596,7 @@ int aws_websocket_convert_to_midchannel_handler(struct aws_websocket *websocket)
 ```
 """
 function aws_websocket_convert_to_midchannel_handler(websocket)
-    ccall((:aws_websocket_convert_to_midchannel_handler, libaws_c_http), Cint, (Ptr{aws_websocket},), websocket)
+    ccall((:aws_websocket_convert_to_midchannel_handler, libaws_c_http_jq), Cint, (Ptr{aws_websocket},), websocket)
 end
 
 """
@@ -3610,7 +3610,7 @@ struct aws_channel *aws_websocket_get_channel(const struct aws_websocket *websoc
 ```
 """
 function aws_websocket_get_channel(websocket)
-    ccall((:aws_websocket_get_channel, libaws_c_http), Ptr{Cvoid}, (Ptr{aws_websocket},), websocket)
+    ccall((:aws_websocket_get_channel, libaws_c_http_jq), Ptr{Cvoid}, (Ptr{aws_websocket},), websocket)
 end
 
 """
@@ -3626,7 +3626,7 @@ int aws_websocket_random_handshake_key(struct aws_byte_buf *dst);
 ```
 """
 function aws_websocket_random_handshake_key(dst)
-    ccall((:aws_websocket_random_handshake_key, libaws_c_http), Cint, (Ptr{Cvoid},), dst)
+    ccall((:aws_websocket_random_handshake_key, libaws_c_http_jq), Cint, (Ptr{Cvoid},), dst)
 end
 
 """
@@ -3642,7 +3642,7 @@ struct aws_http_message *aws_http_message_new_websocket_handshake_request( struc
 ```
 """
 function aws_http_message_new_websocket_handshake_request(allocator, path, host)
-    ccall((:aws_http_message_new_websocket_handshake_request, libaws_c_http), Ptr{aws_http_message}, (Ptr{aws_allocator}, aws_byte_cursor, aws_byte_cursor), allocator, path, host)
+    ccall((:aws_http_message_new_websocket_handshake_request, libaws_c_http_jq), Ptr{aws_http_message}, (Ptr{aws_allocator}, aws_byte_cursor, aws_byte_cursor), allocator, path, host)
 end
 
 """
