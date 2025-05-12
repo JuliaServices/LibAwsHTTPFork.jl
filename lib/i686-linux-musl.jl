@@ -117,6 +117,8 @@ struct aws_http2_connection_options
     on_goaway_received::Ptr{aws_http2_on_goaway_received_fn}
     on_remote_settings_change::Ptr{aws_http2_on_remote_settings_change_fn}
     conn_manual_window_management::Bool
+    conn_window_size_threshold_to_send_update::UInt32
+    stream_window_size_threshold_to_send_update::UInt32
 end
 
 """
@@ -584,7 +586,9 @@ If `conn_manual_window_management` is false, this call will have no effect. The 
 
 If you are not connected, this call will have no effect.
 
-Crashes when the connection is not http2 connection. The limit of the Maximum Size is 2**31 - 1. If the increment size cause the connection flow window exceeds the Maximum size, this call will result in the connection lost.
+Crashes when the connection is not http2 connection. The limit of the Maximum Size is 2**31 - 1. And client will make sure the WINDOW\\_UPDATE frame to be valid.
+
+The client control exactly when the WINDOW\\_UPDATE frame sent. Check `conn_window_size_threshold_to_send_update` for details.
 
 # Arguments
 * `http2_connection`: HTTP/2 connection.
@@ -918,6 +922,7 @@ struct aws_http2_stream_manager_options
     max_closed_streams::Csize_t
     conn_manual_window_management::Bool
     enable_read_back_pressure::Bool
+    initial_window_size::Csize_t
     monitoring_options::Ptr{aws_http_connection_monitoring_options}
     proxy_options::Ptr{aws_http_proxy_options}
     proxy_ev_settings::Ptr{proxy_env_var_settings}
@@ -1198,28 +1203,28 @@ struct aws_http_proxy_negotiator_tunnelling_vtable
 end
 
 """
-    union (unnamed at /home/runner/.julia/artifacts/294cf221bad5c09e61594687be051eb9687772de/include/aws/http/proxy.h:302:5)
+    union (unnamed at /home/runner/.julia/artifacts/317ef40ef83a5553861c7b947456b40b09fefaab/include/aws/http/proxy.h:302:5)
 
 Documentation not found.
 """
-struct var"union (unnamed at /home/runner/.julia/artifacts/294cf221bad5c09e61594687be051eb9687772de/include/aws/http/proxy.h:302:5)"
+struct var"union (unnamed at /home/runner/.julia/artifacts/317ef40ef83a5553861c7b947456b40b09fefaab/include/aws/http/proxy.h:302:5)"
     data::NTuple{4, UInt8}
 end
 
-function Base.getproperty(x::Ptr{var"union (unnamed at /home/runner/.julia/artifacts/294cf221bad5c09e61594687be051eb9687772de/include/aws/http/proxy.h:302:5)"}, f::Symbol)
+function Base.getproperty(x::Ptr{var"union (unnamed at /home/runner/.julia/artifacts/317ef40ef83a5553861c7b947456b40b09fefaab/include/aws/http/proxy.h:302:5)"}, f::Symbol)
     f === :forwarding_vtable && return Ptr{Ptr{aws_http_proxy_negotiator_forwarding_vtable}}(x + 0)
     f === :tunnelling_vtable && return Ptr{Ptr{aws_http_proxy_negotiator_tunnelling_vtable}}(x + 0)
     return getfield(x, f)
 end
 
-function Base.getproperty(x::var"union (unnamed at /home/runner/.julia/artifacts/294cf221bad5c09e61594687be051eb9687772de/include/aws/http/proxy.h:302:5)", f::Symbol)
-    r = Ref{var"union (unnamed at /home/runner/.julia/artifacts/294cf221bad5c09e61594687be051eb9687772de/include/aws/http/proxy.h:302:5)"}(x)
-    ptr = Base.unsafe_convert(Ptr{var"union (unnamed at /home/runner/.julia/artifacts/294cf221bad5c09e61594687be051eb9687772de/include/aws/http/proxy.h:302:5)"}, r)
+function Base.getproperty(x::var"union (unnamed at /home/runner/.julia/artifacts/317ef40ef83a5553861c7b947456b40b09fefaab/include/aws/http/proxy.h:302:5)", f::Symbol)
+    r = Ref{var"union (unnamed at /home/runner/.julia/artifacts/317ef40ef83a5553861c7b947456b40b09fefaab/include/aws/http/proxy.h:302:5)"}(x)
+    ptr = Base.unsafe_convert(Ptr{var"union (unnamed at /home/runner/.julia/artifacts/317ef40ef83a5553861c7b947456b40b09fefaab/include/aws/http/proxy.h:302:5)"}, r)
     fptr = getproperty(ptr, f)
     GC.@preserve r unsafe_load(fptr)
 end
 
-function Base.setproperty!(x::Ptr{var"union (unnamed at /home/runner/.julia/artifacts/294cf221bad5c09e61594687be051eb9687772de/include/aws/http/proxy.h:302:5)"}, f::Symbol, v)
+function Base.setproperty!(x::Ptr{var"union (unnamed at /home/runner/.julia/artifacts/317ef40ef83a5553861c7b947456b40b09fefaab/include/aws/http/proxy.h:302:5)"}, f::Symbol, v)
     unsafe_store!(getproperty(x, f), v)
 end
 
@@ -1235,7 +1240,7 @@ end
 function Base.getproperty(x::Ptr{aws_http_proxy_negotiator}, f::Symbol)
     f === :ref_count && return Ptr{aws_ref_count}(x + 0)
     f === :impl && return Ptr{Ptr{Cvoid}}(x + 12)
-    f === :strategy_vtable && return Ptr{var"union (unnamed at /home/runner/.julia/artifacts/294cf221bad5c09e61594687be051eb9687772de/include/aws/http/proxy.h:302:5)"}(x + 16)
+    f === :strategy_vtable && return Ptr{var"union (unnamed at /home/runner/.julia/artifacts/317ef40ef83a5553861c7b947456b40b09fefaab/include/aws/http/proxy.h:302:5)"}(x + 16)
     return getfield(x, f)
 end
 
@@ -2941,6 +2946,8 @@ If the connection was created with `manual_window_management` set true, the flow
 
 If `manual_window_management` is false, this call will have no effect. The connection maintains its flow-control windows such that no back-pressure is applied and data arrives as fast as possible.
 
+For HTTP/2, the client control exactly when the WINDOW\\_UPDATE frame sent. And client will make sure the WINDOW\\_UPDATE frame to be valid. Check `stream_window_size_threshold_to_send_update` for details.
+
 ### Prototype
 ```c
 void aws_http_stream_update_window(struct aws_http_stream *stream, size_t increment_size);
@@ -3448,20 +3455,6 @@ struct aws_websocket_client_connection_options
     host_resolution_config::Ptr{aws_host_resolution_config}
 end
 
-"""
-    aws_websocket_server_upgrade_options
-
-Documentation not found.
-"""
-struct aws_websocket_server_upgrade_options
-    initial_window_size::Csize_t
-    user_data::Ptr{Cvoid}
-    on_incoming_frame_begin::Ptr{aws_websocket_on_incoming_frame_begin_fn}
-    on_incoming_frame_payload::Ptr{aws_websocket_on_incoming_frame_payload_fn}
-    on_incoming_frame_complete::Ptr{aws_websocket_on_incoming_frame_complete_fn}
-    manual_window_management::Bool
-end
-
 # typedef bool ( aws_websocket_stream_outgoing_payload_fn ) ( struct aws_websocket * websocket , struct aws_byte_buf * out_buf , void * user_data )
 """
 Called repeatedly as the websocket's payload is streamed out. The user should write payload data to out\\_buf, up to available capacity. The websocket will mask this data for you, if necessary. Invoked repeatedly on the websocket's event-loop thread.
@@ -3660,50 +3653,6 @@ struct aws_http_message *aws_http_message_new_websocket_handshake_request( struc
 """
 function aws_http_message_new_websocket_handshake_request(allocator, path, host)
     ccall((:aws_http_message_new_websocket_handshake_request, libaws_c_http_jq), Ptr{aws_http_message}, (Ptr{aws_allocator}, aws_byte_cursor, aws_byte_cursor), allocator, path, host)
-end
-
-"""
-    aws_websocket_is_websocket_request(request)
-
-Return true if the request is a valid websocket upgrade request.
-
-### Prototype
-```c
-bool aws_websocket_is_websocket_request(const struct aws_http_message *request);
-```
-"""
-function aws_websocket_is_websocket_request(request)
-    ccall((:aws_websocket_is_websocket_request, libaws_c_http_jq), Bool, (Ptr{aws_http_message},), request)
-end
-
-"""
-    aws_http_message_new_websocket_handshake_response(allocator, accept_key)
-
-Create response with all required fields for a websocket upgrade response. The following headers are added:
-
-Upgrade: websocket Connection: Upgrade Sec-WebSocket-Accept: <base64 encoded accept key>
-
-### Prototype
-```c
-struct aws_http_message *aws_http_message_new_websocket_handshake_response( struct aws_allocator *allocator, struct aws_byte_cursor accept_key);
-```
-"""
-function aws_http_message_new_websocket_handshake_response(allocator, accept_key)
-    ccall((:aws_http_message_new_websocket_handshake_response, libaws_c_http_jq), Ptr{aws_http_message}, (Ptr{aws_allocator}, aws_byte_cursor), allocator, accept_key)
-end
-
-"""
-    aws_websocket_upgrade(allocator, stream, options)
-
-Upgrade an incoming HTTP connection to a websocket connection. This function should be called from the on\\_request\\_done callback of a request handler. It expects a fully constructed request and will handle sending the handshake response and install the websocket handler into the channel.
-
-### Prototype
-```c
-struct aws_websocket *aws_websocket_upgrade( struct aws_allocator *allocator, struct aws_http_stream *stream, const struct aws_websocket_server_upgrade_options *options);
-```
-"""
-function aws_websocket_upgrade(allocator, stream, options)
-    ccall((:aws_websocket_upgrade, libaws_c_http_jq), Ptr{aws_websocket}, (Ptr{aws_allocator}, Ptr{aws_http_stream}, Ptr{aws_websocket_server_upgrade_options}), allocator, stream, options)
 end
 
 """
