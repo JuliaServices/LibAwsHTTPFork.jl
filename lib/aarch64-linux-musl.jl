@@ -1,4 +1,4 @@
-using CEnum
+using CEnum: CEnum, @cenum
 
 # typedef void ( aws_http_on_client_connection_setup_fn ) ( struct aws_http_connection * connection , int error_code , void * user_data )
 """
@@ -1204,29 +1204,37 @@ struct aws_http_proxy_negotiator_tunnelling_vtable
 end
 
 """
-    union (unnamed at /home/runner/.julia/artifacts/8cbcd9fea1a17e8ea72a64a5faa3f9b0ecbe52e0/include/aws/http/proxy.h:310:5)
+    __JL_Ctag_29
 
 Documentation not found.
 """
-struct var"union (unnamed at /home/runner/.julia/artifacts/8cbcd9fea1a17e8ea72a64a5faa3f9b0ecbe52e0/include/aws/http/proxy.h:310:5)"
+struct __JL_Ctag_29
     data::NTuple{8, UInt8}
 end
 
-function Base.getproperty(x::Ptr{var"union (unnamed at /home/runner/.julia/artifacts/8cbcd9fea1a17e8ea72a64a5faa3f9b0ecbe52e0/include/aws/http/proxy.h:310:5)"}, f::Symbol)
+function Base.getproperty(x::Ptr{__JL_Ctag_29}, f::Symbol)
     f === :forwarding_vtable && return Ptr{Ptr{aws_http_proxy_negotiator_forwarding_vtable}}(x + 0)
     f === :tunnelling_vtable && return Ptr{Ptr{aws_http_proxy_negotiator_tunnelling_vtable}}(x + 0)
     return getfield(x, f)
 end
 
-function Base.getproperty(x::var"union (unnamed at /home/runner/.julia/artifacts/8cbcd9fea1a17e8ea72a64a5faa3f9b0ecbe52e0/include/aws/http/proxy.h:310:5)", f::Symbol)
-    r = Ref{var"union (unnamed at /home/runner/.julia/artifacts/8cbcd9fea1a17e8ea72a64a5faa3f9b0ecbe52e0/include/aws/http/proxy.h:310:5)"}(x)
-    ptr = Base.unsafe_convert(Ptr{var"union (unnamed at /home/runner/.julia/artifacts/8cbcd9fea1a17e8ea72a64a5faa3f9b0ecbe52e0/include/aws/http/proxy.h:310:5)"}, r)
+function Base.getproperty(x::__JL_Ctag_29, f::Symbol)
+    r = Ref{__JL_Ctag_29}(x)
+    ptr = Base.unsafe_convert(Ptr{__JL_Ctag_29}, r)
     fptr = getproperty(ptr, f)
     GC.@preserve r unsafe_load(fptr)
 end
 
-function Base.setproperty!(x::Ptr{var"union (unnamed at /home/runner/.julia/artifacts/8cbcd9fea1a17e8ea72a64a5faa3f9b0ecbe52e0/include/aws/http/proxy.h:310:5)"}, f::Symbol, v)
+function Base.setproperty!(x::Ptr{__JL_Ctag_29}, f::Symbol, v)
     unsafe_store!(getproperty(x, f), v)
+end
+
+function Base.propertynames(x::__JL_Ctag_29, private::Bool = false)
+    (:forwarding_vtable, :tunnelling_vtable, if private
+            fieldnames(typeof(x))
+        else
+            ()
+        end...)
 end
 
 """
@@ -1241,7 +1249,7 @@ end
 function Base.getproperty(x::Ptr{aws_http_proxy_negotiator}, f::Symbol)
     f === :ref_count && return Ptr{aws_ref_count}(x + 0)
     f === :impl && return Ptr{Ptr{Cvoid}}(x + 24)
-    f === :strategy_vtable && return Ptr{var"union (unnamed at /home/runner/.julia/artifacts/8cbcd9fea1a17e8ea72a64a5faa3f9b0ecbe52e0/include/aws/http/proxy.h:310:5)"}(x + 32)
+    f === :strategy_vtable && return Ptr{__JL_Ctag_29}(x + 32)
     return getfield(x, f)
 end
 
@@ -1254,6 +1262,14 @@ end
 
 function Base.setproperty!(x::Ptr{aws_http_proxy_negotiator}, f::Symbol, v)
     unsafe_store!(getproperty(x, f), v)
+end
+
+function Base.propertynames(x::aws_http_proxy_negotiator, private::Bool = false)
+    (:ref_count, :impl, :strategy_vtable, if private
+            fieldnames(typeof(x))
+        else
+            ()
+        end...)
 end
 
 """
@@ -2442,14 +2458,15 @@ function aws_http_message_set_body_stream(message, body_stream)
 end
 
 """
-Documentation not found.
+aws\\_future<aws\\_http\\_message*>
 """
 mutable struct aws_future_http_message end
 
 """
     aws_future_http_message_new(alloc)
 
-Documentation not found.
+aws\\_future<aws\\_http\\_message*>
+
 ### Prototype
 ```c
 AWS_FUTURE_T_POINTER_WITH_RELEASE_DECLARATION(aws_future_http_message, struct aws_http_message, AWS_HTTP_API);
@@ -2462,7 +2479,8 @@ end
 """
     aws_future_http_message_set_result_by_move(future, pointer_address)
 
-Documentation not found.
+aws\\_future<aws\\_http\\_message*>
+
 ### Prototype
 ```c
 AWS_FUTURE_T_POINTER_WITH_RELEASE_DECLARATION(aws_future_http_message, struct aws_http_message, AWS_HTTP_API);
@@ -2475,7 +2493,8 @@ end
 """
     aws_future_http_message_get_result_by_move(future)
 
-Documentation not found.
+aws\\_future<aws\\_http\\_message*>
+
 ### Prototype
 ```c
 AWS_FUTURE_T_POINTER_WITH_RELEASE_DECLARATION(aws_future_http_message, struct aws_http_message, AWS_HTTP_API);
@@ -2488,7 +2507,8 @@ end
 """
     aws_future_http_message_peek_result(future)
 
-Documentation not found.
+aws\\_future<aws\\_http\\_message*>
+
 ### Prototype
 ```c
 AWS_FUTURE_T_POINTER_WITH_RELEASE_DECLARATION(aws_future_http_message, struct aws_http_message, AWS_HTTP_API);
@@ -2501,7 +2521,8 @@ end
 """
     aws_future_http_message_acquire(future)
 
-Documentation not found.
+aws\\_future<aws\\_http\\_message*>
+
 ### Prototype
 ```c
 AWS_FUTURE_T_POINTER_WITH_RELEASE_DECLARATION(aws_future_http_message, struct aws_http_message, AWS_HTTP_API);
@@ -2514,7 +2535,8 @@ end
 """
     aws_future_http_message_release(future)
 
-Documentation not found.
+aws\\_future<aws\\_http\\_message*>
+
 ### Prototype
 ```c
 AWS_FUTURE_T_POINTER_WITH_RELEASE_DECLARATION(aws_future_http_message, struct aws_http_message, AWS_HTTP_API);
@@ -2527,7 +2549,8 @@ end
 """
     aws_future_http_message_set_error(future, error_code)
 
-Documentation not found.
+aws\\_future<aws\\_http\\_message*>
+
 ### Prototype
 ```c
 AWS_FUTURE_T_POINTER_WITH_RELEASE_DECLARATION(aws_future_http_message, struct aws_http_message, AWS_HTTP_API);
@@ -2540,7 +2563,8 @@ end
 """
     aws_future_http_message_is_done(future)
 
-Documentation not found.
+aws\\_future<aws\\_http\\_message*>
+
 ### Prototype
 ```c
 AWS_FUTURE_T_POINTER_WITH_RELEASE_DECLARATION(aws_future_http_message, struct aws_http_message, AWS_HTTP_API);
@@ -2553,7 +2577,8 @@ end
 """
     aws_future_http_message_get_error(future)
 
-Documentation not found.
+aws\\_future<aws\\_http\\_message*>
+
 ### Prototype
 ```c
 AWS_FUTURE_T_POINTER_WITH_RELEASE_DECLARATION(aws_future_http_message, struct aws_http_message, AWS_HTTP_API);
@@ -2566,7 +2591,8 @@ end
 """
     aws_future_http_message_register_callback(future, on_done, user_data)
 
-Documentation not found.
+aws\\_future<aws\\_http\\_message*>
+
 ### Prototype
 ```c
 AWS_FUTURE_T_POINTER_WITH_RELEASE_DECLARATION(aws_future_http_message, struct aws_http_message, AWS_HTTP_API);
@@ -2579,7 +2605,8 @@ end
 """
     aws_future_http_message_register_callback_if_not_done(future, on_done, user_data)
 
-Documentation not found.
+aws\\_future<aws\\_http\\_message*>
+
 ### Prototype
 ```c
 AWS_FUTURE_T_POINTER_WITH_RELEASE_DECLARATION(aws_future_http_message, struct aws_http_message, AWS_HTTP_API);
@@ -2592,7 +2619,8 @@ end
 """
     aws_future_http_message_register_event_loop_callback(future, event_loop, on_done, user_data)
 
-Documentation not found.
+aws\\_future<aws\\_http\\_message*>
+
 ### Prototype
 ```c
 AWS_FUTURE_T_POINTER_WITH_RELEASE_DECLARATION(aws_future_http_message, struct aws_http_message, AWS_HTTP_API);
@@ -2605,7 +2633,8 @@ end
 """
     aws_future_http_message_register_channel_callback(future, channel, on_done, user_data)
 
-Documentation not found.
+aws\\_future<aws\\_http\\_message*>
+
 ### Prototype
 ```c
 AWS_FUTURE_T_POINTER_WITH_RELEASE_DECLARATION(aws_future_http_message, struct aws_http_message, AWS_HTTP_API);
@@ -2618,7 +2647,8 @@ end
 """
     aws_future_http_message_wait(future, timeout_ns)
 
-Documentation not found.
+aws\\_future<aws\\_http\\_message*>
+
 ### Prototype
 ```c
 AWS_FUTURE_T_POINTER_WITH_RELEASE_DECLARATION(aws_future_http_message, struct aws_http_message, AWS_HTTP_API);
