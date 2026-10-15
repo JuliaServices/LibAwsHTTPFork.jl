@@ -115,7 +115,7 @@ jobs:
         id: check_bindings
         run: |
           cd ${{ env.LIBAWS_PATH }}
-          if git diff --quiet; then
+          if git diff --quiet -- lib; then
             echo "No bindings changes detected."
             echo "bindings_changed=false" >> $GITHUB_OUTPUT
           else
@@ -124,7 +124,7 @@ jobs:
           fi
 
       - name: Commit and Open PR
-        if: steps.check_bindings.outputs.bindings_changed == 'true'
+        if: steps.check_version.outputs.update_needed == 'true'
         uses: peter-evans/create-pull-request@v6
         with:
           path: ${{ env.LIBAWS_PATH }}
