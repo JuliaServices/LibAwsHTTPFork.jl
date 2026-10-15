@@ -948,6 +948,7 @@ struct aws_http2_stream_manager_options
     ideal_concurrent_streams_per_connection::Csize_t
     max_concurrent_streams_per_connection::Csize_t
     max_connections::Csize_t
+    max_concurrent_streams::Csize_t
 end
 
 """
@@ -987,6 +988,22 @@ Invoked right before request/response stream is complete to report the tracing m
 """
 const aws_http_on_stream_metrics_fn = Cvoid
 
+# typedef void ( aws_http2_on_remote_end_stream_fn ) ( struct aws_http_stream * stream , void * user_data )
+"""
+Invoked when the remote peer sends END\\_STREAM on an HTTP/2 stream. This is always invoked on the HTTP connection's event-loop thread.
+
+**HTTP/2 ONLY** - This callback is only supported for HTTP/2 request.
+
+This callback is invoked when the remote peer finishes sending by setting the END\\_STREAM flag on the final HEADERS or DATA frame. This indicates that no more data will be received from the remote peer for this stream.
+
+Note: If the server sends RST\\_STREAM instead of END\\_STREAM, `on_remote_end_stream` will NOT fire, but `on_complete` will fire with an error code.
+
+# Arguments
+* `stream`: The HTTP/2 stream
+* `user_data`: User data provided in [`aws_http_make_request_options`](@ref)
+"""
+const aws_http2_on_remote_end_stream_fn = Cvoid
+
 # typedef void ( aws_http_on_stream_complete_fn ) ( struct aws_http_stream * stream , int error_code , void * user_data )
 """
 Invoked when a request/response stream is complete, whether successful or unsuccessful This is always invoked on the HTTP connection's event-loop thread. This will not be invoked if the stream is never activated.
@@ -1012,6 +1029,7 @@ struct aws_http_make_request_options
     on_response_header_block_done::Ptr{aws_http_on_incoming_header_block_done_fn}
     on_response_body::Ptr{aws_http_on_incoming_body_fn}
     on_metrics::Ptr{aws_http_on_stream_metrics_fn}
+    on_h2_remote_end_stream::Ptr{aws_http2_on_remote_end_stream_fn}
     on_complete::Ptr{aws_http_on_stream_complete_fn}
     on_destroy::Ptr{aws_http_on_stream_destroy_fn}
     http2_use_manual_data_writes::Bool
